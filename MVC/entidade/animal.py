@@ -1,6 +1,6 @@
-class Animal
+class Animal:
 
-def __init__(self, nome: str, chegada: str, ano_nascimento: str, sexo: str, doenca: str, vacina: str, castracao: str ):
+def __init__(self, nome: str, chegada: str, ano_nascimento: str, sexo: str, doenca: str, vacina: str, castracao: str):
         self.__nome = nome
         self.__chegada = chegada
         self.__ano_nascimento = ano_nascimento
