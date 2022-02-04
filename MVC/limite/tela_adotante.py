@@ -18,9 +18,9 @@ class TelaAdotante():
     nome = input("Nome: ")
     data_nascimento = input("Data de nascimento: ")
     telefone = input("Telefone: ")
-    genero = input("Gênero: ")
+    genero = input("Genero: ")
     email = input("E-mail: ")
-    endereco = input("Endereço: ")
+    endereco = input("Endereco: ")
 
     return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone, "genero": genero, "email": email, "endereco": endereco}
 
@@ -29,9 +29,9 @@ class TelaAdotante():
     print("NOME DO ADOTANTE: ", dados_adotante["nome"])
     print("IDADE DO ADOTANTE: ", dados_adotante["idade"])
     print("TELEFONE DO ADOTANTE: ", dados_adotante["telefone"])
-    print("GÊNERO DO ADOTANTE: ", dados_adotante["nome"])
+    print("GENERO DO ADOTANTE: ", dados_adotante["nome"])
     print("E-MAIL DO ADOTANTE: ", dados_adotante["nome"])
-    print("ENDEREÇO DO ADOTANTE: ", dados_adotante["nome"])
+    print("ENDERECO DO ADOTANTE: ", dados_adotante["nome"])
     print("\n")
 
   # fazer aqui tratamento dos dados, caso a entrada seja diferente do esperado
