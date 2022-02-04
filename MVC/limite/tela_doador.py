@@ -18,9 +18,9 @@ class TelaDoador():
     nome = input("Nome: ")
     data_nascimento = input("Data de nascimento: ")
     telefone = input("Telefone: ")
-    genero = input("Gênero: ")
+    genero = input("Genero: ")
     email = input("E-mail: ")
-    endereco = input("Endereço: ")
+    endereco = input("Endereco: ")
 
     return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone, "genero": genero, "email": email, "endereco": endereco}
 
@@ -29,9 +29,9 @@ class TelaDoador():
     print("NOME DO DOADOR: ", dados_doador["nome"])
     print("IDADE DO DOADOR: ", dados_doador["idade"])
     print("TELEFONE DO DOADOR: ", dados_doador["telefone"])
-    print("GÊNERO DO DOADOR: ", dados_doador["nome"])
+    print("GENERO DO DOADOR: ", dados_doador["nome"])
     print("E-MAIL DO DOADOR: ", dados_doador["nome"])
-    print("ENDEREÇO DO DOADOR: ", dados_doador["nome"])
+    print("ENDERECO DO DOADOR: ", dados_doador["nome"])
     print("\n")
 
   # fazer aqui tratamento dos dados, caso a entrada seja diferente do esperado
