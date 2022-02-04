@@ -12,8 +12,8 @@ class ControladorAnimal:
     def pega_animal_por_nome(self, nome: str):
       for animal in self.__animais:
         if animal.nome == nome:
-        return animal
-    return None
+    return animal
+        return None
 
     def incluir_animal(self):
             dados_animal = self.__tela_animal.pega_dados_animal()
