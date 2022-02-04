@@ -1,4 +1,3 @@
-from MVC.entidade import doador
 from MVC.limite.tela_doador import TelaDoador
 from MVC.entidade.doador import Doador
 
@@ -25,8 +24,8 @@ class ControladorDoadores():
 
     def altera_doador(self):
         self.lista_doadores()
-        telefone_doador = self.__tela_doador.seleciona_adotante()
-        adotante = self.pega_adotante_por_telefone(telefone_doador)
+        telefone_doador = self.__tela_doador.seleciona_doador()
+        doador = self.pega_doador_por_telefone(telefone_doador)
 
         if(doador is not None):
           novos_dados_doador = self.__tela_doador.pega_dados_doador()
