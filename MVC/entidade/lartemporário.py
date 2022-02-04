@@ -6,7 +6,7 @@ class LarTemporario(Voluntario, Animal):
     def __init__(self, voluntario: Voluntario, animal: Animal, data_entrada: str):
         if isinstance(voluntario, Voluntario):
             self.__voluntario = voluntario
-        if (isinstance(animal, Animal)):
+        if isinstance(animal, Animal):
             self.__animal = Animal
         self.__data_entrada = data_entrada
 
