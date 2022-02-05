@@ -49,11 +49,11 @@ class ControladorAnimal:
         nome_animal = self.__tela_animal.seleciona_animal()
         animal = self.pega_animal_por_nome(nome_animal)
 
-      if animal is not None:
-        self.__animais.remove(animal)
-        self.lista_animais()
-      else:
-        self.__tela_animal.mostra_mensagem("ATENCAO: Animal não existente")
+        if animal is not None:
+            self.__animais.remove(animal)
+            self.lista_animais()
+        else:
+            self.__tela_animal.mostra_mensagem("ATENCAO: Animal não existente")
 
     def retornar(self):
       self.__controlador_sistema.abre_tela()
