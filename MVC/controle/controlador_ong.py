@@ -51,12 +51,22 @@ class ControladorONG:
     def cadastra_adocao(self):
         self.__controlador_adocao.abre_tela()
 
-    def cadastro_animal(self):
+    def cadastra_animal(self):
         self.__controlador_animal.abre_tela()
 
-    def cadastro_doacao(self):
+    def cadastra_doacao(self):
         self.__controlador_doacao.abre_tela()
 
+    def cadastra_voluntario(self):
+        self.__controlador_voluntario.abre_tela()
+
+    def cadastra_lartemporario(self):
+        self.__controlador_lartemporario.abre_tela()
+
+    def abre_tela(self):
+        lista_opcoes = {1: self.__cadastra_doacao. 2: self.__cadastra_doador,
+                        3: self.__cadastra_adotante, 4: self.__cadastra_voluntario,
+                        5: self.__cadastra_lartemporario, 6: self.__cadastra_animal}
 
 controlador_ong = ControladorONG()
 controlador_ong.inicia_sistema()
