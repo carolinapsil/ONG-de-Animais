@@ -1,4 +1,4 @@
-from MVC.limite.tela_adoacao import TelaAdocao
+from MVC.limite.tela_adocao import TelaAdocao
 from MVC.entidade.doacao import Doacao
 
 class ControladorAdocoes():
