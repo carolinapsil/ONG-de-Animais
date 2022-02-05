@@ -57,7 +57,7 @@ class ControladorAdotantes():
             self.__tela_adotante.mostra_mensagem("ATENCAO: Adotante não existente")
 
     def retornar(self):
-        self.__controlador_sistema.abre_tela(
+        self.__controlador_sistema.abre_tela()
 
     def mostra_opcoes(self):
         self.__tela_adotante.tela_opcoes()
