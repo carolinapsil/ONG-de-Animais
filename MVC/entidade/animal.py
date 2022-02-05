@@ -68,3 +68,6 @@ class Animal(ABC):
     @castracao.setter
     def castracao(self, castracao):
         self.__castracao = castracao
+
+    def mostra_opcoes(self):
+        self.__tela_animal.tela_opcoes()
