@@ -33,24 +33,29 @@ class ControladorONG:
         return self.__controlador_animal
 
     def inicia_sistema(self):
-        opcao = self.__tela_principal.mostra_opcoes()
-        if opcao == 1:
-            self.__controlador_doacao.mostra_opcoes()
-        elif opcao == 2:
-            self.__controlador_animal.mostra_opcoes()
+        self.abre_tela()
+
+        #opcao = self.__tela_principal.mostra_opcoes()
+        #if opcao == 1:
+        #    self.__controlador_doacao.mostra_opcoes()
+        #elif opcao == 2:
+         #   self.__controlador_animal.mostra_opcoes()
 
 
-    def cadastro_doador(self):
+    def cadastra_doador(self):
         self.__controlador_doador.abre_tela_inicial()
 
-    def cadastro_adotante(self):
+    def cadastra_adotante(self):
         self.__controlador_adotantes.abre_tela_inicial()
 
-    def cadastro_adocao(self):
-        self.__controlador_doacao.abre_tela()
+    def cadastra_adocao(self):
+        self.__controlador_adocao.abre_tela()
 
     def cadastro_animal(self):
         self.__controlador_animal.abre_tela()
+
+    def cadastro_doacao(self):
+        self.__controlador_doacao.abre_tela()
 
 
 controlador_ong = ControladorONG()
