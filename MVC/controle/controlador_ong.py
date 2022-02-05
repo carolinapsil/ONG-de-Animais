@@ -39,8 +39,7 @@ class ControladorONG:
 
     def inicia_sistema(self):
         self.abre_tela()
-
-        #opcao = self.__tela_principal.mostra_opcoes()
+        opcao = self.__tela_principal.mostra_opcoes()
         #if opcao == 1:
         #    self.__controlador_doacao.mostra_opcoes()
         #elif opcao == 2:
