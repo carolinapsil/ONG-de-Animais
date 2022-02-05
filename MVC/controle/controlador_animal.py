@@ -12,7 +12,7 @@ class ControladorAnimal:
     def pega_animal_por_nome(self, nome: str):
       for animal in self.__animais:
         if animal.nome == nome:
-    return animal
+            return animal
         return None
 
     def incluir_animal(self):
