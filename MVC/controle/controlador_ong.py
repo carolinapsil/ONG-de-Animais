@@ -36,6 +36,9 @@ class ControladorONG:
         opcao = self.__tela_principal.mostra_opcoes()
         if opcao == 1:
             self.__controlador_doacao.mostra_opcoes()
+        elif opcao == 2:
+            self.__controlador_animal.mostra_opcoes()
+
 
     def cadastro_doador(self):
         self.__controlador_doador.abre_tela_inicial()
