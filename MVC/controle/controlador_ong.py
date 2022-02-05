@@ -68,5 +68,10 @@ class ControladorONG:
                         3: self.__cadastra_adotante, 4: self.__cadastra_voluntario,
                         5: self.__cadastra_lartemporario, 6: self.__cadastra_animal}
 
+        while True:
+            opcao_escolhida = self.__tela_principal.mostra_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+
+
 controlador_ong = ControladorONG()
 controlador_ong.inicia_sistema()
