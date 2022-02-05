@@ -1,4 +1,4 @@
-from animal import Animal
+from MVC.entidade.animal import Animal
 
 
 class Cachorro(Animal):
