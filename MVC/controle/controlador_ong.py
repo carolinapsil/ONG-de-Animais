@@ -1,6 +1,6 @@
 from MVC.controle.controlador_doacao import ControladorDoacoes
 from MVC.controle.controlador_doador import ControladorDoador
-from MVC.controle.controlador_adotantes import ControladorAdotantes
+from MVC.controle.controlador_adotante import ControladorAdotante
 from MVC.controle.controlador_animal import ControladorAnimal
 from MVC.limite.tela_principal import TelaPrincipal
 
@@ -10,7 +10,7 @@ class ControladorONG:
     def __init__(self):
         self.__controlador_doacao = ControladorDoacoes(self)
         self.__controlador_doador = ControladorDoador(self)
-        self.__controlador_adotantes = ControladorAdotantes(self)
+        self.__controlador_adotantes = ControladorAdotante(self)
         self.__controlador_animal = ControladorAnimal(self)
 
         #colocar todos os controladores
@@ -25,8 +25,8 @@ class ControladorONG:
         return self.__controlador_doador
 
     @property
-    def controlador_adotantes(self):
-        return self.__controlador_adotantes
+    def controlador_adotante(self):
+        return self.__controlador_adotante
 
     @property
     def controlador_controlador_animal(self):
@@ -46,7 +46,7 @@ class ControladorONG:
         self.__controlador_doador.abre_tela_inicial()
 
     def cadastra_adotante(self):
-        self.__controlador_adotantes.abre_tela_inicial()
+        self.__controlador_adotante.abre_tela()
 
     def cadastra_adocao(self):
         self.__controlador_adocao.abre_tela()
