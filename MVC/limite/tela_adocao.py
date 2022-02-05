@@ -1,6 +1,4 @@
 class TelaAdocao:
-
-
     def tela_opcoes(self):
         print("-------- ADOÇÃO ----------")
         print("Escolha a opcao")
