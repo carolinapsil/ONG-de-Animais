@@ -11,7 +11,7 @@ class ControladorONG:
     def __init__(self):
         self.__controlador_doacao = ControladorDoacoes(self)
         self.__controlador_doador = ControladorDoador(self)
-        self.__controlador_adotantes = ControladorAdotante(self)
+        self.__controlador_adotante = ControladorAdotante(self)
         self.__controlador_animal = ControladorAnimal(self)
         self.__controlador_adocao = ControladorAdocoes
         #colocar todos os controladores
@@ -37,13 +37,19 @@ class ControladorONG:
     def controlador_adocao(self):
         return self.__controlador_adocao
 
+    @property
+    def controlador_voluntario(self):
+        return self.__controlador_voluntario
+
     def inicia_sistema(self):
-        self.abre_tela()
+        self.__tela_principal.mostra_opcoes()
         opcao = self.__tela_principal.mostra_opcoes()
-        #if opcao == 1:
-        #    self.__controlador_doacao.mostra_opcoes()
-        #elif opcao == 2:
-         #   self.__controlador_animal.mostra_opcoes()
+        if opcao == 1:
+            self.__controlador_doacao.mostra_opcoes()
+        if opcao == 3:
+            self.__controlador_adotante.mostra_opcoes()
+        if opcao == 4:
+            self.__controlador_doador.mostra_opcoes()
 
 
     def cadastra_doador(self):
