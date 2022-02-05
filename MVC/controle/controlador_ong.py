@@ -64,7 +64,7 @@ class ControladorONG:
         self.__controlador_lartemporario.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.__cadastra_doacao. 2: self.__cadastra_doador,
+        lista_opcoes = {1: self.__cadastra_doacao, 2: self.__cadastra_doador,
                         3: self.__cadastra_adotante, 4: self.__cadastra_voluntario,
                         5: self.__cadastra_lartemporario, 6: self.__cadastra_animal}
 
