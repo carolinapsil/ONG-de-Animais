@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class Animal(ABC):
 
+    @abstractmethod
     def __init__(self, nome: str, chegada: str, ano_nascimento: str, sexo: str, doenca: str, vacina: str, castracao: str):
         self.__nome = nome
         self.__chegada = chegada
