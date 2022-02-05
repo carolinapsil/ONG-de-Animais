@@ -62,3 +62,6 @@ class ControladorDoador():
     def abre_tela_inicial(self):
         switcher = {1: self.inclui_doador, 2: self.altera_doador, 3: self.lista_doadores, 4: self.exclui_doador,
                         0: self.retornar}
+
+    def mostra_opcoes(self):
+        self.__tela_doador.tela_opcoes()
