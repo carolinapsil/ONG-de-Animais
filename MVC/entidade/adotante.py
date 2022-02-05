@@ -1,4 +1,4 @@
-from pessoa import Pessoa
+from MVC.entidade.pessoa import Pessoa
 
 
 class Adotante(Pessoa):
