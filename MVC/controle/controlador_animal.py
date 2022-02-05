@@ -1,5 +1,5 @@
-from limite.tela_animal import TelaAnimal
-from entidade.animal import Animal
+from MVC.limite.tela_animal import TelaAnimal
+from MVC.entidade.animal import Animal
 
 
 class ControladorAnimal:
