@@ -9,5 +9,7 @@ class TelaPrincipal():
         print("3 - Adotante")
         print("4 - Doador")
         print("5 - Voluntario")
-        opcao_escolhida = int(input("Escolha opcao:"))
-        return opcao_escolhida
+        print("6 - Adocoes")
+        print("0 - Finalizar sistema")
+        opcao = int(input("Escolha a opcao:"))
+        return opcao
