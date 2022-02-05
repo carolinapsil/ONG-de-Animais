@@ -1,6 +1,7 @@
 from MVC.controle.controlador_doacao import ControladorDoacoes
 from MVC.controle.controlador_doador import ControladorDoador
 from MVC.controle.controlador_adotantes import ControladorAdotantes
+from MVC.controle.controlador_animal import ControladorAnimal
 from MVC.limite.tela_principal import TelaPrincipal
 
 
@@ -10,6 +11,7 @@ class ControladorONG:
         self.__controlador_doacao = ControladorDoacoes(self)
         self.__controlador_doador = ControladorDoador(self)
         self.__controlador_adotantes = ControladorAdotantes(self)
+        self.__controlador_animal = ControladorAnimal(self)
 
         #colocar todos os controladores
         self.__tela_principal = TelaPrincipal()
