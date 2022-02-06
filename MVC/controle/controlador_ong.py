@@ -4,6 +4,7 @@ from MVC.controle.controlador_adotante import ControladorAdotante
 from MVC.controle.controlador_animal import ControladorAnimal
 from MVC.controle.controlador_adocao import ControladorAdocoes
 from MVC.controle.controlador_voluntario import ControladorVoluntario
+from MVC.controle.controlador_lartemporario import ControladorLarTemporario
 from MVC.limite.tela_principal import TelaPrincipal
 
 
@@ -15,6 +16,8 @@ class ControladorONG:
         self.__controlador_adotante = ControladorAdotante(self)
         self.__controlador_animal = ControladorAnimal(self)
         self.__controlador_adocao = ControladorAdocoes
+        self.__controlador_voluntario = ControladorVoluntario
+        self.__controlador_lartemporario = ControladorLarTemporario
         #colocar todos os controladores
         self.__tela_principal = TelaPrincipal()
 
