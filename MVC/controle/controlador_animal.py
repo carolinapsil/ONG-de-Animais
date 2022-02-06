@@ -2,7 +2,7 @@ from MVC.limite.tela_animal import TelaAnimal
 from MVC.entidade.animal import Animal
 
 
-class ControladorAnimal:
+class ControladorAnimal():
 
         def __init__(self, controlador_sistema):
                 self.__animais = []
@@ -59,7 +59,7 @@ class ControladorAnimal:
                 self.__controlador_sistema.abre_tela()
 
         def abre_tela(self):
-                lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.listar_animal, 4: self.excluir_animal, 0: self.retornar}
-                continua = True
-        while continua:
+            lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.listar_animal, 4: self.excluir_animal, 0: self.retornar}
+            continua = True
+            while continua:
                 lista_opcoes[self.__tela_animal.tela_opcoes()]()
