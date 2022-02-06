@@ -17,7 +17,7 @@ class ControladorAdotante():
         return None
 
     def inclui_adotante(self):
-        dados_adotante = self.__tela_adotante.pega_dados_adotante()
+        dados_adotante = self.__tela_adotante.pega_dados_adotante(self)
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],
                             dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"])
         self.__adotantes.append(adotante)
@@ -42,8 +42,8 @@ class ControladorAdotante():
     def lista_adotantes(self):
         for adotante in self.__adotantes:
             self.__tela_adotante.mostra_adotante({"nome": adotante.nome, "data_nascimento": adotante.data_nascimento,
-                                                  "telefone": adotante.telefone, "genero": adotante.genero, "email":
-                                                      adotante.email, "endereco": adotante.endereco})
+                                                  "telefone": adotante.telefone, "genero": adotante.genero,
+                                                  "email": adotante.email, "endereco": adotante.endereco})
 
     def exclui_adotante(self):
         self.lista_adotantes()
@@ -60,7 +60,7 @@ class ControladorAdotante():
         self.__controlador_sistema.abre_tela()
 
     def mostra_opcoes(self):
-        self.__tela_adotante.tela_opcoes()
+        self.__tela_adotante.tela_opcoes(self)
 
     def abre_tela(self):
         self.mostra_opcoes()
@@ -68,6 +68,6 @@ class ControladorAdotante():
                         0: self.retornar}
         continua = True
         while continua:
-            opcao_escolhida = self.__tela_adotante.tela_opcoes()
+            opcao_escolhida = self.__tela_adotante.tela_opcoes(self)
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()

@@ -26,7 +26,7 @@ class TelaAdotante:
         email = input("E-mail: ")
         endereco = input("Endereco: ")
 
-        return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone,
+        return {"nome": nome, "data_nascimento": data_nascimento, "telefone": telefone,
                 "genero": genero, "email": email, "endereco": endereco}
 
     def mostra_adotante(self, dados_adotante):
@@ -45,8 +45,8 @@ class TelaAdotante:
 
 
     def seleciona_adotante(self):
-        email = input("E-mail do adotante que deseja selecionar: ")
-        return email
+        telefone_adotante = input("Telefone do adotante que deseja selecionar: ")
+        return telefone_adotante
 
     def mostra_mensagem(self, msg):
         print(msg)
