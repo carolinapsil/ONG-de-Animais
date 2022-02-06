@@ -2,7 +2,7 @@ from MVC.limite.tela_animal import TelaAnimal
 from MVC.entidade.animal import Animal
 
 
-class ControladorAnimal():
+class ControladorAnimal:
 
         def __init__(self, controlador_sistema):
                 self.__animais = []
@@ -18,7 +18,7 @@ class ControladorAnimal():
         def incluir_animal(self):
                 dados_animal = self.__tela_animal.pega_dados_animal()
                 animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
-                        dados_animal["sexo"],dados_animal["doenca"], dados_animal["vacina"], dados_animal["castracao"])
+                                dados_animal["sexo"], dados_animal["doenca"], dados_animal["vacina"], dados_animal["castracao"])
                 self.__animais.append(animal)
 
         def alterar_animal(self):
@@ -42,7 +42,7 @@ class ControladorAnimal():
         def lista_animais(self):
             for animal in self.__animais:
                 self.__tela_animal.mostra_animal({"nome": animal.nome, "chegada": animal.chegada, "ano_nascimento": animal.ano_nascimento,
-                                                "sexo": animal.sexo, "doenca": animal.doenca, "vacina": animal.vacina, "castracao":animal.castracao})
+                                                "sexo": animal.sexo, "doenca": animal.doenca, "vacina": animal.vacina, "castracao": animal.castracao})
 
         def excluir_animal(self):
             self.lista_animais()
@@ -59,7 +59,9 @@ class ControladorAnimal():
                 self.__controlador_sistema.abre_tela()
 
         def abre_tela(self):
-            lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.listar_animal, 4: self.excluir_animal, 0: self.retornar}
-            continua = True
-            while continua:
-                lista_opcoes[self.__tela_animal.tela_opcoes()]()
+            lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.lista_animais, 4: self.excluir_animal, 0: self.retornar}
+
+            while True:
+                opcao_escolhida = self.__tela_animal.tela_opcoes()
+                funcao_escolhida = lista_opcoes[opcao_escolhida]
+                funcao_escolhida()

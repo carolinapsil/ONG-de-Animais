@@ -58,7 +58,7 @@ class ControladorLarTemporario:
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        switcher = {1: self.inclui_lartemporario(), 2: self.altera_lartemporario(), 3: self.lista_lartemporario(),
+        lista_opcoes = {1: self.inclui_lartemporario(), 2: self.altera_lartemporario(), 3: self.lista_lartemporario(),
                     4: self.exclui_lartemporario(), 0: self.retornar}
         while True:
             opcao_escolhida = self.__tela_lartemporario.tela_opcoes()
