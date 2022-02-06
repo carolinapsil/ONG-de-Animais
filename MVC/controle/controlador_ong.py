@@ -45,15 +45,20 @@ class ControladorONG:
     def controlador_voluntario(self):
         return self.__controlador_voluntario
 
+    @property
+    def controlador_lartemporario(self):
+        return self.__controlador_lartemporario
+
     def inicia_sistema(self):
-        self.__tela_principal.mostra_opcoes()
-        opcao = self.__tela_principal.mostra_opcoes()
-        if opcao == 1:
-            self.__controlador_doacao.mostra_opcoes()
-        if opcao == 3:
-            self.__controlador_adotante.mostra_opcoes()
-        if opcao == 4:
-            self.__controlador_doador.mostra_opcoes()
+        self.abre_tela()
+      #  self.__tela_principal.mostra_opcoes()
+        #opcao = self.__tela_principal.mostra_opcoes()
+     #   if opcao == 1:
+      #      self.__controlador_doacao.mostra_opcoes()
+      #  if opcao == 3:
+       #     self.__controlador_adotante.mostra_opcoes()
+        #if opcao == 4:
+         #   self.__controlador_doador.mostra_opcoes()
 
 
     def cadastra_doador(self):
