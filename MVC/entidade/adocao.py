@@ -2,11 +2,12 @@ from MVC.entidade.adotante import Adotante
 from MVC.entidade.animal import Animal
 
 
-class Adocao(Adotante, Animal):
-    def __init__(self, adotante: Adotante, animal: Animal, data: str):
+class Adocao:
+    def __init__(self, adotante: Adotante, animal: Animal, data: str, codigo: str):
         self.__adotante = adotante
         self.__animal = animal
         self.__data = data
+        self.__codigo = codigo
 
     @property
     def adotante(self):
@@ -31,3 +32,11 @@ class Adocao(Adotante, Animal):
     @data.setter
     def data(self, data):
         self.__data = data
+
+    @property
+    def codigo(self):
+        return self.__codigo
+
+    @codigo.setter
+    def codigo(self, codigo):
+        self.__codigo = codigo
