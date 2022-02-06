@@ -2,7 +2,7 @@ from limite.tela_adocao import TelaAdocao
 from entidade.adocao import Adocao
 
 
-class ControladorEmprestimos:
+class ControladorAdocao:
 
   def __init__(self, controlador_sistema):
     self.__controlador_sistema = controlador_sistema
@@ -22,11 +22,9 @@ class ControladorEmprestimos:
 
   def lista_adocao(self):
     for e in self.__adocoes:
-      self.__tela_adocao.mostra_emprestimo({"codigo": e.codigo,
-                                                "titulo_livro": e.livro.titulo,
-                                                "codigo_livro": e.livro.codigo,
-                                                "nome_amigo": e.amigo.nome,
-                                                "cpf_amigo": e.amigo.cpf})
+      self.__tela_adocao.mostra_adocao({"adotante": e.adotante,
+                                                "animal": e.animal,
+                                                "data": e.data)
 
   def excluir_adocao(self):
     self.lista_adocao()
