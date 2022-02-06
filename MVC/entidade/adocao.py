@@ -1,4 +1,4 @@
-from MVC.entidade.pessoa import Adotante
+from MVC.entidade.adotante import Adotante
 from MVC.entidade.animal import Animal
 
 
