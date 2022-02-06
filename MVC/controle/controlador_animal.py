@@ -2,7 +2,7 @@ from MVC.limite.tela_animal import TelaAnimal
 from MVC.entidade.animal import Animal
 
 
-class ControladorAnimal:
+class ControladorAnimal():
 
         def __init__(self, controlador_sistema):
                 self.__animais = []
@@ -22,9 +22,9 @@ class ControladorAnimal:
                 self.__animais.append(animal)
 
         def alterar_animal(self):
-                self.lista_animais()
-                nome_animal = self.__tela_animal.seleciona_animal()
-                animal = self.pega_animal_por_nome(nome_animal)
+            self.lista_animais()
+            nome_animal = self.__tela_animal.seleciona_animal()
+            animal = self.pega_animal_por_nome(nome_animal)
 
             if animal is not None:
                 novos_dados_animal = self.__tela_animal.pega_dados_animal()
@@ -45,9 +45,9 @@ class ControladorAnimal:
                                                 "sexo": animal.sexo, "doenca": animal.doenca, "vacina": animal.vacina, "castracao":animal.castracao})
 
         def excluir_animal(self):
-                self.lista_animais()
-                nome_animal = self.__tela_animal.seleciona_animal()
-                animal = self.pega_animal_por_nome(nome_animal)
+            self.lista_animais()
+            nome_animal = self.__tela_animal.seleciona_animal()
+            animal = self.pega_animal_por_nome(nome_animal)
 
             if animal is not None:
                 self.__animais.remove(animal)
@@ -59,7 +59,7 @@ class ControladorAnimal:
                 self.__controlador_sistema.abre_tela()
 
         def abre_tela(self):
-                lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.listar_animal, 4: self.excluir_animal, 0: self.retornar}
-                continua = True
-        while continua:
+            lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.listar_animal, 4: self.excluir_animal, 0: self.retornar}
+            continua = True
+            while continua:
                 lista_opcoes[self.__tela_animal.tela_opcoes()]()
