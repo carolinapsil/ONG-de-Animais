@@ -32,3 +32,11 @@ class Doacao:
     @data_doacao.setter
     def data_doacao(self, data_doacao):
         self.__data_doacao = data_doacao
+
+    @property
+    def codigo(self):
+        return self.__codigo
+
+    @codigo.setter
+    def codigo(self, codigo):
+        self.__codigo = codigo
