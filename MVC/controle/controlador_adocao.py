@@ -9,21 +9,36 @@ class ControladorAdocao:
         self.__tela_adocao = TelaAdocao()
 
     def pega_adocao_por_codigo(self, codigo: int):
-      for adocao in self.__adocoes:
-        if adocao.codigo == codigo:
-          return adocao
-      return None
+        for adocao in self.__adocoes:
+            if adocao.codigo == codigo:
+                return adocao
+        return None
 
     def incluir_adocao(self):
         dados_adocao = self.__tela_adocao.pega_dados_adocao()
         adocao = Adocao(dados_adocao["adotante"], dados_adocao["animal"], dados_adocao["data"])
         self.__adocoes.append(adocao)
 
+    def altera_adocao(self):
+        self.lista_adocao()
+        codigo_adocao = self.__tela_adocao.seleciona_adocao()
+        adocao = self.pega_adocao_por_codigo(codigo_adocao)
+
+        if adocao is not None:
+            novos_dados_adocao = self.__tela_adocao.pega_dados_adocao()
+            adocao.adotante = novos_dados_adocao["adotante"]
+            adocao.animal = novos_dados_adocao["animal"]
+            adocao.data = novos_dados_adocao["data"]
+            adocao.codigo = novos_dados_adocao["codigo"]
+            self.lista_adocao()
+        else:
+            self.__tela_adocao.mostra_mensagem("ATENCAO: Adoção não existente")
+
     def lista_adocao(self):
-      for e in self.__adocoes:
-        self.__tela_adocao.mostra_adocao({"adotante": e.adotante,
-                                          "animal": e.animal,
-                                          "data": e.data})
+        for e in self.__adocoes:
+            self.__tela_adocao.mostra_adocao({"adotante": e.adotante,
+                                              "animal": e.animal,
+                                              "data": e.data})
 
     def excluir_adocao(self):
         self.lista_adocao()
@@ -39,7 +54,7 @@ class ControladorAdocao:
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.incluir_adocao, 2: self.lista_adocao, 3: self.excluir_adocao, 0: self.retornar}
+        lista_opcoes = {1: self.incluir_adocao, 2: self.lista_adocao, 3: self.excluir_adocao, 4: self.altera_adocao, 0: self.retornar}
         continua = True
         while continua:
             opcao_escolhida = self.__tela_adocao.tela_opcoes()
