@@ -12,7 +12,7 @@ class ControladorAdotante():
 
     def pega_adotante_por_telefone(self, telefone: str):
         for adotante in self.__adotantes:
-            if (adotante.telefone == telefone):
+            if adotante.telefone == telefone:
                 return adotante
         return None
 
