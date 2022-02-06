@@ -4,7 +4,7 @@ from MVC.controle.controlador_doador import ControladorDoador
 class TelaDoador():
 
     def __init__(self, controlador_doador):
-        self.__controlador_doador = controlador_doador
+        self.__controlador_doador = ControladorDoador()
 
     def tela_opcoes(self):
         print("-------- DOADOR ----------")
