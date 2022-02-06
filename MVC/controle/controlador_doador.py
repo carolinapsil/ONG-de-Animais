@@ -8,7 +8,7 @@ class ControladorDoador():
         self.__controlador_sistema = controlador_sistema
 
     def inicia(self):
-        self.abre_tela_inicial()
+        self.abre_tela()
 
     def pega_doador_por_telefone(self, telefone: str):
         for doador in self.__doadores:
@@ -42,8 +42,8 @@ class ControladorDoador():
     def lista_doadores(self):
         for doador in self.__doadores:
             self.__tela_doador.mostra_doador({"nome": doador.nome, "data_nascimento": doador.data_nascimento,
-                                                  "telefone": doador.telefone, "genero": doador.genero, "email":
-                                                      doador.email, "endereco": doador.endereco})
+                                              "telefone": doador.telefone, "genero": doador.genero,
+                                              "email": doador.email, "endereco": doador.endereco})
 
     def exclui_doador(self):
         self.lista_doadores()
@@ -60,8 +60,10 @@ class ControladorDoador():
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        switcher = {1: self.inclui_doador, 2: self.altera_doador, 3: self.lista_doadores, 4: self.exclui_doador,
+        lista_opcoes = {1: self.inclui_doador, 2: self.altera_doador, 3: self.lista_doadores, 4: self.exclui_doador,
                         0: self.retornar}
 
-    def mostra_opcoes(self):
-        self.__tela_doador.tela_opcoes()
+        while True:
+            opcao_escolhida = self.__tela_doador.tela_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()
