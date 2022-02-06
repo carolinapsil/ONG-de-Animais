@@ -26,7 +26,7 @@ class ControladorLarTemporario:
     def altera_lartemporario(self):
         self.lista_lartemporario()
         data_entrada = self.__tela_lartemporario.seleciona_lartemporario()
-         lartemporario = self.pega_lartemporario_por_data(data_entrada)
+        lartemporario = self.pega_lartemporario_por_data(data_entrada)
 
         if lartemporario is not None:
           novos_dados_lartemporario = self.__tela_lartemporario.pega_dados_lartemporario()

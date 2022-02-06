@@ -1,5 +1,5 @@
-from MVC.entidade.adotante import Adotante
-from MVC.controle.controlador_adotante import ControladorAdotante
+#from MVC.entidade.adotante import Adotante
+#from MVC.controle.controlador_adotante import ControladorAdotante
 
 class TelaAdotante:
 

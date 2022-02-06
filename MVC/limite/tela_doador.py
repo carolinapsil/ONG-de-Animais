@@ -1,4 +1,4 @@
-from MVC.controle.controlador_doador import ControladorDoador
+#from MVC.controle.controlador_doador import ControladorDoador
 
 
 class TelaDoador():

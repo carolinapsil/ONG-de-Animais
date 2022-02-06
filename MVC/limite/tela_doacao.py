@@ -1,4 +1,4 @@
-from MVC.controle.controlador_doacao import ControladorDoacoes
+#from MVC.controle.controlador_doacao import ControladorDoacoes
 
 
 class TelaDoacao:
