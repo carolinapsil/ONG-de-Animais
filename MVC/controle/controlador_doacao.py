@@ -18,6 +18,13 @@ class ControladorDoacoes():
         self.__controlador_sistema.controlador_doacao.lista_doacao()
         dados_doacao = self.__tela_doacao.pega_dados_doacao()
 
+        doador = self.__controlador_sistema.controlador_doacao.pega_doacao_por_codigo(dados_doacao["doador"])
+        valor = self.__controlador_sistema.controlador_doacao.pega_doacao_por_codigo(dados_doacao["valor"])
+        data_doacao = self.__controlador_sistema.controlador_doacao.pega_doacao_por_codigo(dados_doacao["data_doacao"])
+        codigo = self.__controlador_sistema.controlador_doacao.pega_doacao_por_codigo(dados_doacao["codigo"])
+        doacao = Doacao(doador, valor, data_doacao, codigo)
+        self.__doacoes.append(doacao)
+
     def altera_doacao(self):
         self.lista_doacao()
         codigo_doacao = self.__tela_doacao.seleciona_doacao()
@@ -69,10 +76,10 @@ class ControladorDoacoes():
         lista_opcoes = {1: self.incluir_doacao(), 2: self.altera_doacao(), 3: self.lista_doacao, 4: self.excluir_doacao(),
                         0: self.retornar}
 
-       # continua = True
-       # while continua:
-        #lista_opcoes[self.__tela_doacao.tela_opcoes()]()
-        while True:
-            opcao_escolhida = self.__tela_doacao.tela_opcoes()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            funcao_escolhida()
+        continua = True
+        while continua:
+            lista_opcoes[self.__tela_doacao.tela_opcoes()]()
+       # while True:
+        #    opcao_escolhida = self.__tela_doacao.tela_opcoes()
+         #   funcao_escolhida = lista_opcoes[opcao_escolhida]
+          #  funcao_escolhida()

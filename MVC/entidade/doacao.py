@@ -3,7 +3,7 @@ from MVC.entidade.doador import Doador
 
 class Doacao:
     def __init__(self, doador: Doador, valor: float, data_doacao: str, codigo: int):
-        if (isinstance(doador, Doador)):
+        if isinstance(doador, Doador):
             self.__doador = doador
         self.__valor = valor
         self.__data_doacao = data_doacao
@@ -14,8 +14,9 @@ class Doacao:
         return self.__doador
 
     @doador.setter
-    def doador(self, doador):
-        self.__doador = doador
+    def doador(self, doador: Doador):
+        if isinstance(doador, Doador):
+            self.__doador = doador
 
     @property
     def valor(self):
