@@ -2,7 +2,7 @@ from MVC.controle.controlador_doacao import ControladorDoacoes
 from MVC.controle.controlador_doador import ControladorDoador
 from MVC.controle.controlador_adotante import ControladorAdotante
 from MVC.controle.controlador_animal import ControladorAnimal
-from MVC.controle.controlador_adocao import ControladorAdocoes
+from MVC.controle.controlador_adocao import ControladorAdocao
 from MVC.controle.controlador_voluntario import ControladorVoluntario
 from MVC.controle.controlador_lartemporario import ControladorLarTemporario
 from MVC.limite.tela_principal import TelaPrincipal
