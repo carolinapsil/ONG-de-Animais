@@ -82,10 +82,14 @@ class ControladorONG:
     def cadastra_lartemporario(self):
         self.__controlador_lartemporario.abre_tela()
 
+    def finaliza_sistema(self):
+        exit(0)
+
     def abre_tela(self):
         lista_opcoes = {1: self.cadastra_doacao, 2: self.cadastra_animal,
                         3: self.cadastra_adotante, 4: self.cadastra_doador,
-                        5: self.cadastra_voluntario, 6: self.cadastra_adocao, 7: self.cadastra_lartemporario}
+                        5: self.cadastra_voluntario, 6: self.cadastra_adocao,
+                        7: self.cadastra_lartemporario, 0: self.finaliza_sistema}
 
         while True:
             opcao_escolhida = self.__tela_principal.mostra_opcoes()
