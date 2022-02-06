@@ -4,7 +4,7 @@
 class TelaDoador():
 
     def __init__(self, controlador_doador):
-        self.__controlador_doador = ControladorDoador()
+        self.__controlador_doador = controlador_doador
 
     def tela_opcoes(self):
         print("-------- DOADOR ----------")
@@ -38,17 +38,6 @@ class TelaDoador():
         print("E-MAIL DO DOADOR: ", dados_doador["nome"])
         print("ENDERECO DO DOADOR: ", dados_doador["nome"])
         print("\n")
-
-    def excluir_doador(self):
-        self.lista_doadores()
-        telefone_doador = self.__tela_doador.seleciona_doador()
-        doador = self.pega_doador_por_telefone(telefone_doador)
-
-        if doador is not None:
-            self.__doadores.remove(doador)
-            self.lista_doadores()
-        else:
-            self.__tela_doador.mostra_mensagem("ATENCAO: Doador não existente")
 
     def seleciona_doador(self):
         telefone = input("Telefone do doador que deseja selecionar: ")
