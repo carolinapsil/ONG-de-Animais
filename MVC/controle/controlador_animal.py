@@ -22,9 +22,9 @@ class ControladorAnimal:
                 self.__animais.append(animal)
 
         def alterar_animal(self):
-                self.lista_animais()
-                nome_animal = self.__tela_animal.seleciona_animal()
-                animal = self.pega_animal_por_nome(nome_animal)
+            self.lista_animais()
+            nome_animal = self.__tela_animal.seleciona_animal()
+            animal = self.pega_animal_por_nome(nome_animal)
 
             if animal is not None:
                 novos_dados_animal = self.__tela_animal.pega_dados_animal()
