@@ -34,6 +34,15 @@ class TelaDoacao:
         print("CODIGO DA DOACAO: "), dados_doacao["codigo"]
         print("\n")
 
+    def mostra_lista_doacoes(self, doacoes):
+        print("-------- LISTA DE DOACOES --------")
+        for doacao in doacoes:
+            print("DOADOR: ", doacao.doador.nome)
+            print("VALOR DA DOACAO: ", doacao.valor)
+            print("DATA DA DOACAO: ", doacao.data_doacao)
+            print("CODIGO DA DOACAO: ", doacao.codigo)
+            print("\n")
+
     def seleciona_doacao(self):
         codigo = input("Codigo da doacao que deseja selecionar: ")
         return codigo

@@ -33,6 +33,13 @@ class ControladorDoacoes():
         else:
           self.__tela_doacao.mostra_mensagem("ATENCAO: Doacao não existente")
 
+    def seleciona_doacao(self):
+        self.__tela_doacao.mostra_lista_doacoes(self.__doacoes)
+        codigo = self.__tela_doacao.seleciona_doacao()
+        doacao = self.pega_doacao_por_codigo()(codigo)
+        if doacao is not None:
+            return doacao
+
     def lista_doacao(self):
         for i in self.__doacoes:
             self.__tela_doacao.mostra_doacao({"doador": i.doador.nome,
@@ -62,7 +69,10 @@ class ControladorDoacoes():
         lista_opcoes = {1: self.incluir_doacao(), 2: self.altera_doacao(), 3: self.lista_doacao, 4: self.excluir_doacao(),
                         0: self.retornar}
 
-        while True:
-            opcao_escolhida = self.__tela_doacao.tela_opcoes()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            funcao_escolhida()
+       # continua = True
+       # while continua:
+        #lista_opcoes[self.__tela_doacao.tela_opcoes()]()
+      #  while True:
+        opcao_escolhida = self.__tela_doacao.tela_opcoes()
+        funcao_escolhida = lista_opcoes[opcao_escolhida]
+        funcao_escolhida()
