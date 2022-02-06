@@ -28,3 +28,10 @@ class ControladorAdocoes():
             self.lista_adocao()
         else:
             self.__tela_adocoes.mostra_mensagem("ATENCAO: Adoção não existente")
+
+    def abre_tela(self):
+        lista_opcoes = {1: self.incluir_adocao(), 2: self.altera_adocao(), 3: self.lista_adocao,
+                        4: self.excluir_adocao(), 0: self.retornar}
+
+        while True:
+            lista_opcoes[self.__tela_adocoes.tela_opcoes()]()
