@@ -20,7 +20,7 @@ class TelaAdocao:
 
         return {"adotante": adotante, "animal": animal, "data": data, "codigo": codigo}
 
-    def mostra_adocao(self):
+    def mostra_adocao(self, dados_adocao):
         print("ADOTANTE: ", dados_adocao["adotante"])
         print("ANIMAL: ", dados_adocao["animal"])
         print("DATA DA ADOÇÃO: ", dados_adocao["data"])
@@ -30,8 +30,8 @@ class TelaAdocao:
     def mostra_lista_adocoes(self, adocoes):
         print("-------- LISTA DE ADOÇOES --------")
         for adocao in adocoes:
-            print("ADOTANTE: ", adocao.adotante.nome)
-            print("ANIMAL: ", adocao.animal.nome)
+            print("ADOTANTE: ", adocao.adotante)
+            print("ANIMAL: ", adocao.animal)
             print("DATA DA ADOÇAO: ", adocao.data)
             print("CODIGO DA ADOÇAO: ", adocao.codigo)
             print("\n")

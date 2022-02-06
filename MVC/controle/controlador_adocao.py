@@ -35,8 +35,8 @@ class ControladorAdocao:
             self.__tela_adocao.mostra_mensagem("ATENCAO: Adoção não existente")
 
     def lista_adocao(self):
-        for e in self.__adocoes:
-            self.__tela_adocao.mostra_adocao({"adotante": e.adotante, "animal": e.animal, "data": e.data, "codigo": e.codigo})
+        for adocao in self.__adocoes:
+            self.__tela_adocao.mostra_adocao({"adotante": adocao.adotante, "animal": adocao.animal, "data": adocao.data, "codigo": adocao.codigo})
 
     def excluir_adocao(self):
         self.lista_adocao()

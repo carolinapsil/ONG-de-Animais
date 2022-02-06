@@ -31,7 +31,6 @@ class TelaAnimal:
         print("O ANIMAL POSSUI DOENÇAS?: ", dados_animal["doenca"])
         print("VACINAS DO ANIMAL: ", dados_animal["vacina"])
         print("O ANIMAL É CASTRADO?: ", dados_animal["castracao"])
-
         print("\n")
 
     def seleciona_animal(self):
