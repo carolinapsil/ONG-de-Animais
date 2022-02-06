@@ -20,7 +20,7 @@ class ControladorAdocoes():
 
     def excluir_adocao(self):
         self.lista_adocao()
-        codigo_adocao = self.__tela_adocoes.seleciona_doacao()
+        codigo_adocao = self.__tela_adocoes.seleciona_adocao()
         adocao = self.pega_adocao_por_codigo(int(codigo_adocao))
 
         if adocao is not None:
