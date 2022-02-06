@@ -22,7 +22,7 @@ class TelaDoador:
 
         return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone, "genero": genero, "email": email, "endereco": endereco}
 
-    def mostra_adotante(self, dados_doador):
+    def mostra_doador(self, dados_doador):
         print("NOME DO DOADOR: ", dados_doador["nome"])
         print("IDADE DO DOADOR: ", dados_doador["idade"])
         print("TELEFONE DO DOADOR: ", dados_doador["telefone"])

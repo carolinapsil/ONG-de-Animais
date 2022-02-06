@@ -8,7 +8,7 @@ class ControladorDoador():
         self.__controlador_sistema = controlador_sistema
 
     def inicia(self):
-        self.abre_tela_inicial()
+        self.abre_tela()
 
     def pega_doador_por_telefone(self, telefone: str):
         for doador in self.__doadores:
