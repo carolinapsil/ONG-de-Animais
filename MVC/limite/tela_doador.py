@@ -27,16 +27,16 @@ class TelaDoador():
         email = input("E-mail: ")
         endereco = input("Endereco: ")
 
-        return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone,
+        return {"nome": nome, "data_nascimento": data_nascimento, "telefone": telefone,
                 "genero": genero, "email": email, "endereco": endereco}
 
     def mostra_doador(self, dados_doador):
         print("NOME DO DOADOR: ", dados_doador["nome"])
-        print("IDADE DO DOADOR: ", dados_doador["idade"])
+        print("DATA DE NASCIMENTO DO DOADOR: ", dados_doador["data_nascimento"])
         print("TELEFONE DO DOADOR: ", dados_doador["telefone"])
-        print("GENERO DO DOADOR: ", dados_doador["nome"])
-        print("E-MAIL DO DOADOR: ", dados_doador["nome"])
-        print("ENDERECO DO DOADOR: ", dados_doador["nome"])
+        print("GENERO DO DOADOR: ", dados_doador["genero"])
+        print("E-MAIL DO DOADOR: ", dados_doador["email"])
+        print("ENDERECO DO DOADOR: ", dados_doador["endereco"])
         print("\n")
 
     def seleciona_doador(self):
