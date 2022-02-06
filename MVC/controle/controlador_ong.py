@@ -3,6 +3,7 @@ from MVC.controle.controlador_doador import ControladorDoador
 from MVC.controle.controlador_adotante import ControladorAdotante
 from MVC.controle.controlador_animal import ControladorAnimal
 from MVC.controle.controlador_adocao import ControladorAdocoes
+from MVC.controle.controlador_voluntario import ControladorVoluntario
 from MVC.limite.tela_principal import TelaPrincipal
 
 
@@ -74,9 +75,9 @@ class ControladorONG:
         self.__controlador_lartemporario.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.__cadastra_doacao, 2: self.__cadastra_doador,
-                        3: self.__cadastra_adotante, 4: self.__cadastra_voluntario,
-                        5: self.__cadastra_lartemporario, 6: self.__cadastra_animal}
+        lista_opcoes = {1: self.cadastra_doacao, 2: self.cadastra_doador,
+                        3: self.cadastra_adotante, 4: self.cadastra_voluntario,
+                        5: self.cadastra_lartemporario, 6: self.cadastra_animal}
 
         while True:
             opcao_escolhida = self.__tela_principal.mostra_opcoes()
