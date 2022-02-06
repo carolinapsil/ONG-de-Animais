@@ -61,6 +61,7 @@ class ControladorDoacoes():
         lista_opcoes = {1: self.incluir_doacao(), 2: self.altera_doacao(), 3: self.lista_doacao, 4: self.excluir_doacao(),
                         0: self.retornar}
 
-        continua = True
-        while continua:
-            lista_opcoes[self.__tela_doacao.tela_opcoes()]()
+        while True:
+            opcao_escolhida = self.__tela_doacao.tela_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()
