@@ -9,7 +9,6 @@ class TelaAnimal:
         print("0 - Retornar")
 
         opcao = int(input("Escolha a opcao: "))
-
         return opcao
 
     def pega_dados_animal(self):
@@ -36,8 +35,8 @@ class TelaAnimal:
         print("\n")
 
     def seleciona_animal(self):
-        nome = input("Nome do animal que deseja selecionar: ")
-        return nome
+        nome_animal = input("Nome do animal que deseja selecionar: ")
+        return nome_animal
 
     def mostra_mensagem(self, msg):
         print(msg)

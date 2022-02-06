@@ -9,7 +9,7 @@ class ControladorAnimal:
                 self.__tela_animal = TelaAnimal()
                 self.__controlador_sistema = controlador_sistema
 
-        def pega_animal_por_nome(self):
+        def pega_animal_por_nome(self, nome: str):
             for animal in self.__animais:
                 if animal.nome == nome:
                     return animal
@@ -46,8 +46,8 @@ class ControladorAnimal:
 
         def excluir_animal(self):
             self.lista_animais()
-            nome_animal = self.__tela_animal.seleciona_animal()
-            animal = self.pega_animal_por_nome(nome_animal)
+            animal = self.__tela_animal.seleciona_animal()
+            animal = self.pega_animal_por_nome(animal)
 
             if animal is not None:
                 self.__animais.remove(animal)
@@ -63,4 +63,3 @@ class ControladorAnimal:
             continua = True
             while continua:
                 lista_opcoes[self.__tela_animal.tela_opcoes()]()
-
