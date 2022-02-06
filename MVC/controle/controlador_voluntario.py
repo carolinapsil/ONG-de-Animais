@@ -64,8 +64,14 @@ class ControladorVoluntario():
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        switcher = {1: self.inclui_voluntario(), 2: self.altera_voluntario(), 3: self.lista_voluntarios(),
+        self.mostra_opcoes()
+        lista_opcoes = {1: self.inclui_voluntario(), 2: self.altera_voluntario(), 3: self.lista_voluntarios(),
                     4: self.exclui_voluntario(), 0: self.retornar}
+        while True:
+            opcao_escolhida = self.__tela_voluntario.tela_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()
+
 
     def mostra_opcoes(self):
         self.__tela_voluntario.tela_opcoes()

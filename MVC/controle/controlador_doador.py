@@ -59,7 +59,11 @@ class ControladorDoador():
     def retornar(self):
         self.__controlador_sistema.abre_tela()
 
+    def mostra_opcoes(self):
+        self.__tela_doador.tela_opcoes()
+
     def abre_tela(self):
+        self.mostra_opcoes()
         lista_opcoes = {1: self.inclui_doador, 2: self.altera_doador, 3: self.lista_doadores, 4: self.exclui_doador,
                         0: self.retornar}
 

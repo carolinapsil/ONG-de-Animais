@@ -63,8 +63,11 @@ class ControladorAdotante():
         self.__tela_adotante.tela_opcoes()
 
     def abre_tela(self):
+        self.mostra_opcoes()
         lista_opcoes = {1: self.inclui_adotante, 2: self.altera_adotante, 3: self.lista_adotante, 4: self.exclui_adotante,
                         0: self.retornar}
         continua = True
         while continua:
-            lista_opcoes[self.__tela_adotante.tela_opcoes()]()
+            opcao_escolhida = self.__tela_doacao.tela_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()
