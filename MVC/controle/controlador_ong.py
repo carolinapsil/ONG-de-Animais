@@ -15,7 +15,7 @@ class ControladorONG:
         self.__controlador_doador = ControladorDoador(self)
         self.__controlador_adotante = ControladorAdotante(self)
         self.__controlador_animal = ControladorAnimal(self)
-        self.__controlador_adocao = ControladorAdocoes(self)
+        self.__controlador_adocao = ControladorAdocao(self)
         self.__controlador_voluntario = ControladorVoluntario(self)
         self.__controlador_lartemporario = ControladorLarTemporario(self)
         #colocar todos os controladores
