@@ -8,7 +8,7 @@ class ControladorAdotante():
         self.__controlador_sistema = controlador_sistema
 
     def inicia(self):
-        self.abre_tela_inicial()
+        self.abre_tela()
 
     def pega_adotante_por_telefone(self, telefone: str):
         for adotante in self.__adotantes:
@@ -64,10 +64,10 @@ class ControladorAdotante():
 
     def abre_tela(self):
         self.mostra_opcoes()
-        lista_opcoes = {1: self.inclui_adotante, 2: self.altera_adotante, 3: self.lista_adotante, 4: self.exclui_adotante,
+        lista_opcoes = {1: self.inclui_adotante, 2: self.altera_adotante, 3: self.lista_adotantes, 4: self.exclui_adotante,
                         0: self.retornar}
         continua = True
         while continua:
-            opcao_escolhida = self.__tela_doacao.tela_opcoes()
+            opcao_escolhida = self.__tela_adotante.tela_opcoes()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()

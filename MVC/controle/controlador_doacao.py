@@ -72,7 +72,7 @@ class ControladorDoacoes():
        # continua = True
        # while continua:
         #lista_opcoes[self.__tela_doacao.tela_opcoes()]()
-      #  while True:
-        opcao_escolhida = self.__tela_doacao.tela_opcoes()
-        funcao_escolhida = lista_opcoes[opcao_escolhida]
-        funcao_escolhida()
+        while True:
+            opcao_escolhida = self.__tela_doacao.tela_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()
