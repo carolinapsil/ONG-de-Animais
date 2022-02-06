@@ -1,4 +1,11 @@
-class TelaDoador:
+from MVC.controle.controlador_doador import ControladorDoador
+
+
+class TelaDoador():
+
+    def __init__(self, controlador_doador):
+        self.__controlador_doador = controlador_doador
+
     def tela_opcoes(self):
         print("-------- DOADOR ----------")
         print("Escolha a opcao")
@@ -20,7 +27,8 @@ class TelaDoador:
         email = input("E-mail: ")
         endereco = input("Endereco: ")
 
-        return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone, "genero": genero, "email": email, "endereco": endereco}
+        return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone,
+                "genero": genero, "email": email, "endereco": endereco}
 
     def mostra_doador(self, dados_doador):
         print("NOME DO DOADOR: ", dados_doador["nome"])
@@ -31,9 +39,20 @@ class TelaDoador:
         print("ENDERECO DO DOADOR: ", dados_doador["nome"])
         print("\n")
 
+    def excluir_doador(self):
+        self.lista_doadores()
+        telefone_doador = self.__tela_doador.seleciona_doador()
+        doador = self.pega_doador_por_telefone(telefone_doador)
+
+        if doador is not None:
+            self.__doadores.remove(doador)
+            self.lista_doadores()
+        else:
+            self.__tela_doador.mostra_mensagem("ATENCAO: Doador não existente")
+
     def seleciona_doador(self):
-        email = input("E-mail do doador que deseja selecionar: ")
-        return email
+        telefone = input("Telefone do doador que deseja selecionar: ")
+        return telefone
 
     def mostra_mensagem(self, msg):
         print(msg)
