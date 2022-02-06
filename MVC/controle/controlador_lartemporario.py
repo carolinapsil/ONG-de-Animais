@@ -33,7 +33,7 @@ class ControladorLarTemporario:
           lartemporario.voluntario = novos_dados_lartemporario["voluntario"]
           lartemporario.animal = novos_dados_lartemporario["animal"]
           lartemporario.data_entrada = novos_dados_lartemporario["data_entrada"]
-          self.lista_lares()
+          self.lista_lartemporario()
         else:
           self.__tela_lartemporario.mostra_mensagem("ATENCAO: Lar temporario não existente")
 
@@ -44,13 +44,13 @@ class ControladorLarTemporario:
                                                       "data_entrada": lartemporario.data_entrada})
 
     def exclui_lartemporario(self):
-        self.lista_lares()
+        self.lista_lartemporario()
         data_entrada = self.__tela_lartemporario.seleciona_lartemporario()
         lartemporario = self.pega_lartemporario_por_data(data_entrada)
 
         if lartemporario is not None:
             self.__lares.remove(lartemporario)
-            self.lista_lares()
+            self.lista_lartemporario()
         else:
             self.__tela_lartemporario.mostra_mensagem("ATENCAO: Lar temporario não existente")
 
@@ -60,6 +60,10 @@ class ControladorLarTemporario:
     def abre_tela(self):
         switcher = {1: self.inclui_lartemporario(), 2: self.altera_lartemporario(), 3: self.lista_lartemporario(),
                     4: self.exclui_lartemporario(), 0: self.retornar}
+        while True:
+            opcao_escolhida = self.__tela_lartemporario.tela_opcoes()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()
 
     def mostra_opcoes(self):
-        self.__tela_voluntario.tela_opcoes()
+        self.__tela_lartemporario.tela_opcoes()

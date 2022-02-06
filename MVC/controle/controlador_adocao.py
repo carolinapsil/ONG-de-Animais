@@ -1,5 +1,5 @@
 from MVC.limite.tela_adocao import TelaAdocao
-from MVC.entidade.doacao import Doacao
+from MVC.entidade.adocao import Adocao
 
 class ControladorAdocoes():
     def __init__(self, controlador_sistema):
