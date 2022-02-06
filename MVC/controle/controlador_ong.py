@@ -45,15 +45,20 @@ class ControladorONG:
     def controlador_voluntario(self):
         return self.__controlador_voluntario
 
+    @property
+    def controlador_lartemporario(self):
+        return self.__controlador_lartemporario
+
     def inicia_sistema(self):
-        self.__tela_principal.mostra_opcoes()
-        opcao = self.__tela_principal.mostra_opcoes()
-        if opcao == 1:
-            self.__controlador_doacao.mostra_opcoes()
-        if opcao == 3:
-            self.__controlador_adotante.mostra_opcoes()
-        if opcao == 4:
-            self.__controlador_doador.mostra_opcoes()
+        self.abre_tela()
+      #  self.__tela_principal.mostra_opcoes()
+        #opcao = self.__tela_principal.mostra_opcoes()
+     #   if opcao == 1:
+      #      self.__controlador_doacao.mostra_opcoes()
+      #  if opcao == 3:
+       #     self.__controlador_adotante.mostra_opcoes()
+        #if opcao == 4:
+         #   self.__controlador_doador.mostra_opcoes()
 
 
     def cadastra_doador(self):
@@ -78,9 +83,9 @@ class ControladorONG:
         self.__controlador_lartemporario.abre_tela()
 
     def abre_tela(self):
-        lista_opcoes = {1: self.cadastra_doacao, 2: self.cadastra_doador,
-                        3: self.cadastra_adotante, 4: self.cadastra_voluntario,
-                        5: self.cadastra_lartemporario, 6: self.cadastra_animal}
+        lista_opcoes = {1: self.cadastra_doacao, 2: self.cadastra_animal,
+                        3: self.cadastra_adotante, 4: self.cadastra_doador,
+                        5: self.cadastra_voluntario, 6: self.cadastra_adocao, 7: self.cadastra_lartemporario}
 
         while True:
             opcao_escolhida = self.__tela_principal.mostra_opcoes()
