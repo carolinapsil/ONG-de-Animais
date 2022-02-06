@@ -9,7 +9,7 @@ class ControladorAnimal:
                 self.__tela_animal = TelaAnimal()
                 self.__controlador_sistema = controlador_sistema
 
-        def pega_animal_por_nome(self, nome: str):
+        def pega_animal_por_nome(self):
             for animal in self.__animais:
                 if animal.nome == nome:
                     return animal
@@ -60,8 +60,7 @@ class ControladorAnimal:
 
         def abre_tela(self):
             lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.lista_animais, 4: self.excluir_animal, 0: self.retornar}
+            continua = True
+            while continua:
+                lista_opcoes[self.__tela_animal.tela_opcoes()]()
 
-            while True:
-                opcao_escolhida = self.__tela_animal.tela_opcoes()
-                funcao_escolhida = lista_opcoes[opcao_escolhida]
-                funcao_escolhida()

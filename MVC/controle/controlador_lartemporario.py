@@ -60,10 +60,9 @@ class ControladorLarTemporario:
     def abre_tela(self):
         lista_opcoes = {1: self.inclui_lartemporario(), 2: self.altera_lartemporario(), 3: self.lista_lartemporario(),
                         4: self.exclui_lartemporario(), 0: self.retornar}
-        while True:
-            opcao_escolhida = self.__tela_lartemporario.tela_opcoes()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            funcao_escolhida()
+        continua = True
+        while continua:
+            lista_opcoes[self.__tela_lartemporario.tela_opcoes()]()
 
     def mostra_opcoes(self):
         self.__tela_lartemporario.tela_opcoes()

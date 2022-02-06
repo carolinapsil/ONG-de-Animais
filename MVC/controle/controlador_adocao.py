@@ -56,6 +56,5 @@ class ControladorAdocao:
         lista_opcoes = {1: self.incluir_adocao, 2: self.altera_adocao, 3: self.lista_adocao, 4: self.excluir_adocao, 0: self.retornar}
         continua = True
         while continua:
-            opcao_escolhida = self.__tela_adocao.tela_opcoes()
-            funcao_escolhida = lista_opcoes[opcao_escolhida]
-            funcao_escolhida()
+            lista_opcoes[self.__tela_adocao.tela_opcoes()]()
+

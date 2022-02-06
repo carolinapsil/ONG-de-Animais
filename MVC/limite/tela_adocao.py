@@ -20,7 +20,7 @@ class TelaAdocao:
 
         return {"adotante": adotante, "animal": animal, "data": data, "codigo": codigo}
 
-    def mostra_adocao(self, dados_adocao):
+    def mostra_adocao(self):
         print("ADOTANTE: ", dados_adocao["adotante"])
         print("ANIMAL: ", dados_adocao["animal"])
         print("DATA DA ADOÇÃO: ", dados_adocao["data"])
