@@ -45,9 +45,9 @@ class ControladorAnimal:
                                                 "sexo": animal.sexo, "doenca": animal.doenca, "vacina": animal.vacina, "castracao":animal.castracao})
 
         def excluir_animal(self):
-                self.lista_animais()
-                nome_animal = self.__tela_animal.seleciona_animal()
-                animal = self.pega_animal_por_nome(nome_animal)
+            self.lista_animais()
+            nome_animal = self.__tela_animal.seleciona_animal()
+            animal = self.pega_animal_por_nome(nome_animal)
 
             if animal is not None:
                 self.__animais.remove(animal)
