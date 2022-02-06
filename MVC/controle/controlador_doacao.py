@@ -14,8 +14,8 @@ class ControladorDoacoes():
         return None
 
     def incluir_doacao(self):
-        self.__controlador_sistema.controlador_doadores.lista_doadores()
-        self.__controlador_sistema.controlador_doacoes.lista_doacao()
+        self.__controlador_sistema.controlador_doador.lista_doadores()
+        self.__controlador_sistema.controlador_doacao.lista_doacao()
         dados_doacao = self.__tela_doacao.pega_dados_doacao()
 
     def altera_doacao(self):
