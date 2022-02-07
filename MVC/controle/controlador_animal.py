@@ -44,10 +44,11 @@ class ControladorAnimal:
                 self.__tela_animal.mostra_animal({"nome": animal.nome, "chegada": animal.chegada, "ano_nascimento": animal.ano_nascimento,
                                                 "sexo": animal.sexo, "doenca": animal.doenca, "vacina": animal.vacina, "castracao": animal.castracao})
 
+
         def excluir_animal(self):
             self.lista_animais()
-            animal = self.__tela_animal.seleciona_animal()
-            animal = self.pega_animal_por_nome(animal)
+            nome = self.__tela_animal.seleciona_animal()
+            animal = self.pega_animal_por_nome(nome)
 
             if animal is not None:
                 self.__animais.remove(animal)
@@ -56,7 +57,7 @@ class ControladorAnimal:
                 self.__tela_animal.mostra_mensagem("ATENCAO: Animal não existente")
 
         def retornar(self):
-                self.__controlador_sistema.abre_tela()
+            self.__controlador_sistema.abre_tela()
 
         def abre_tela(self):
             lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.lista_animais, 4: self.excluir_animal, 0: self.retornar}

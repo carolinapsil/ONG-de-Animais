@@ -34,8 +34,8 @@ class TelaAnimal:
         print("\n")
 
     def seleciona_animal(self):
-        nome_animal = input("Nome do animal que deseja selecionar: ")
-        return nome_animal
+        nome = input("Nome do animal que deseja selecionar: ")
+        return nome
 
     def mostra_mensagem(self, msg):
         print(msg)
