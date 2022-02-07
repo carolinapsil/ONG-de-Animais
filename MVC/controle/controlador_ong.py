@@ -51,15 +51,6 @@ class ControladorONG:
 
     def inicia_sistema(self):
         self.abre_tela()
-      #  self.__tela_principal.mostra_opcoes()
-        #opcao = self.__tela_principal.mostra_opcoes()
-     #   if opcao == 1:
-      #      self.__controlador_doacao.mostra_opcoes()
-      #  if opcao == 3:
-       #     self.__controlador_adotante.mostra_opcoes()
-        #if opcao == 4:
-         #   self.__controlador_doador.mostra_opcoes()
-
 
     def cadastra_doador(self):
         self.__controlador_doador.abre_tela()
