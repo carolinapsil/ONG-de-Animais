@@ -27,7 +27,6 @@ class TelaVoluntario:
     def mostra_voluntario(self, dados_voluntario):
         print("NOME DO VOLUNTARIO: ", dados_voluntario["nome"])
         print("DATA NASCIMENTO DO VOLUNTARIO: ", dados_voluntario["data_nascimento"])
-        print("IDADE DO VOLUNTARIO: ", dados_voluntario["idade"])
         print("TELEFONE DO VOLUNTARIO: ", dados_voluntario["telefone"])
         print("GENERO DO VOLUNTARIO: ", dados_voluntario["genero"])
         print("E-MAIL DO VOLUNTARIO: ", dados_voluntario["email"])

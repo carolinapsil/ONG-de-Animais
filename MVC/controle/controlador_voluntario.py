@@ -29,7 +29,7 @@ class ControladorVoluntario:
         voluntario = self.pega_voluntario_por_telefone(telefone_voluntario)
 
         if voluntario is not None:
-            novos_dados_voluntario = self.__tela_voluntario.pega_dados_voluntario(self)
+            novos_dados_voluntario = self.__tela_voluntario.pega_dados_voluntario()
             voluntario.nome = novos_dados_voluntario["nome"]
             voluntario.data_nascimento = novos_dados_voluntario["data_nascimento"]
             voluntario.telefone = novos_dados_voluntario["telefone"]
@@ -43,9 +43,10 @@ class ControladorVoluntario:
 
     def lista_voluntarios(self):
         for voluntario in self.__voluntarios:
-            self.__tela_voluntario.mostra_voluntario(["nome": voluntario.nome, "data_nascimento": voluntario.data_nascimento,
+            self.__tela_voluntario.mostra_voluntario(self, dados_voluntario={"nome": voluntario.nome, "data_nascimento": voluntario.data_nascimento,
                                                      "telefone": voluntario.telefone, "genero": voluntario.genero,
-                                                     "email": voluntario.email, "endereco": voluntario.endereco])
+                                                     "email": voluntario.email, "endereco": voluntario.endereco,
+                                                      "oferece_lt": voluntario.oferece_lt})
 
     def exclui_voluntario(self):
         self.lista_voluntarios()
