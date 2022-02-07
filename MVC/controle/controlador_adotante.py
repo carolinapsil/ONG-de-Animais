@@ -19,7 +19,8 @@ class ControladorAdotante():
     def inclui_adotante(self):
         dados_adotante = self.__tela_adotante.pega_dados_adotante(self)
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],
-                            dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"])
+                            dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"],
+                            dados_adotante["idade"])
         self.__adotantes.append(adotante)
 
     def altera_adotante(self):
@@ -35,15 +36,20 @@ class ControladorAdotante():
           adotante.genero = novos_dados_adotante["genero"]
           adotante.email = novos_dados_adotante["email"]
           adotante.endereco = novos_dados_adotante["endereco"]
+          adotante.idade = novos_dados_adotante["idade"]
           self.lista_adotantes()
         else:
           self.__tela_adotante.mostra_mensagem("ATENCAO: Adotante não existente")
 
     def lista_adotantes(self):
         for adotante in self.__adotantes:
-            self.__tela_adotante.mostra_adotante(self, dados_adotante={"nome": adotante.nome, "data_nascimento": adotante.data_nascimento,
-                                                  "telefone": adotante.telefone, "genero": adotante.genero,
-                                                  "email": adotante.email, "endereco": adotante.endereco})
+            self.__tela_adotante.mostra_adotante(self, dados_adotante={"nome": adotante.nome,
+                                                                       "data_nascimento": adotante.data_nascimento,
+                                                                       "telefone": adotante.telefone,
+                                                                       "genero": adotante.genero,
+                                                                       "email": adotante.email,
+                                                                       "endereco": adotante.endereco,
+                                                                       "idade": adotante.idade})
 
     def exclui_adotante(self):
         self.lista_adotantes()
