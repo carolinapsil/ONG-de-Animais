@@ -23,13 +23,64 @@ class TelaAnimal:
 
     def pega_dados_animal(self):
         print("-------- DADOS ANIMAL ----------")
-        nome = input("Nome: ")
-        chegada = input("Chegada: ")
-        ano_nascimento = input("ano_nascimento: ")
-        sexo = input("sexo: ")
-        doenca = input("doenca: ")
-        vacina = input("vacina: ")
-        castracao = input("castracao: ")
+
+        while True:
+            try:
+                nome = input("Nome: ")
+                if nome == "":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, não deixe o campo vazio!")
+        while True:
+            try:
+                chegada = input("Chegada: ")
+                if chegada == "":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, não deixe o campo vazio!")
+        while True:
+            try:
+                ano_nascimento = input("ano_nascimento: ")
+                if ano_nascimento == "" or ano_nascimento.isalpha():
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente com um número.")
+        while True:
+            try:
+                sexo = input("Macho ou femea? ")
+                if sexo == "" or sexo.lower() != "macho" or sexo.lower() != "femea" or sexo.lower() != "femea":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente com a opcao macho ou femea")
+        while True:
+            try:
+                doenca = input("Possui alguma doenca? ")
+                if doenca == "" or doenca.lower() != "sim" or doenca.lower() != "nao" or doenca.lower() != "não":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente com sim ou nao")
+        while True:
+            try:
+                vacina = input("Vacinado? ")
+                if vacina == "" or vacina.lower() != "sim" or vacina.lower() != "nao" or vacina.lower() != "não":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente com sim ou nao")
+        while True:
+            try:
+                castracao = input("Castrado? ")
+                if castracao == "" or castracao.lower() != "sim" or \
+                        castracao.lower() != "nao" or castracao.lower() != "não":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente com sim ou nao")
 
         return {"nome": nome, "chegada": chegada, "ano_nascimento": ano_nascimento, "sexo": sexo, "doenca": doenca, "vacina": vacina,
                 "castracao": castracao}
