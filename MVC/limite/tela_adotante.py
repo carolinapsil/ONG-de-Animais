@@ -31,18 +31,17 @@ class TelaAdotante:
 
     def mostra_adotante(self, dados_adotante):
         print("NOME DO ADOTANTE: ", dados_adotante["nome"])
-        print("IDADE DO ADOTANTE: ", dados_adotante["idade"])
+        print("DATA DE NASCIMENTO DO ADOTANTE: ", dados_adotante["data_nascimento"])
         print("TELEFONE DO ADOTANTE: ", dados_adotante["telefone"])
-        print("GENERO DO ADOTANTE: ", dados_adotante["nome"])
-        print("E-MAIL DO ADOTANTE: ", dados_adotante["nome"])
-        print("ENDERECO DO ADOTANTE: ", dados_adotante["nome"])
+        print("GENERO DO ADOTANTE: ", dados_adotante["genero"])
+        print("E-MAIL DO ADOTANTE: ", dados_adotante["email"])
+        print("ENDERECO DO ADOTANTE: ", dados_adotante["endereco"])
         print("\n")
 
     def lista_adotantes(self):
         for adotante in self.__adotantes:
             self.__tela_adotante.mostra_adotante({"nome": adotante.nome, "data_nascimento": adotante.data_nascimento,
                                                   "telefone": adotante.telefone, "cpf": adotante.cpf})
-
 
     def seleciona_adotante(self):
         telefone_adotante = input("Telefone do adotante que deseja selecionar: ")
