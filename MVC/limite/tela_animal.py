@@ -51,7 +51,7 @@ class TelaAnimal:
         while True:
             try:
                 sexo = input("Macho ou femea? ")
-                if sexo == "" or sexo.lower() != "macho" or sexo.lower() != "femea" or sexo.lower() != "femea":
+                if (sexo == "") or (sexo.lower() != "macho" and sexo.lower() != "femea" and sexo.lower() != "fêmea"):
                     raise ValueError
                 break
             except ValueError:
@@ -59,7 +59,7 @@ class TelaAnimal:
         while True:
             try:
                 doenca = input("Possui alguma doenca? ")
-                if doenca == "" or doenca.lower() != "sim" or doenca.lower() != "nao" or doenca.lower() != "não":
+                if doenca == "" or (doenca.lower() != "sim" and doenca.lower() != "nao" and doenca.lower() != "não"):
                     raise ValueError
                 break
             except ValueError:
@@ -67,7 +67,7 @@ class TelaAnimal:
         while True:
             try:
                 vacina = input("Vacinado? ")
-                if vacina == "" or vacina.lower() != "sim" or vacina.lower() != "nao" or vacina.lower() != "não":
+                if vacina == "" or (vacina.lower() != "sim" and vacina.lower() != "nao" and vacina.lower() != "não"):
                     raise ValueError
                 break
             except ValueError:
@@ -75,8 +75,8 @@ class TelaAnimal:
         while True:
             try:
                 castracao = input("Castrado? ")
-                if castracao == "" or castracao.lower() != "sim" or \
-                        castracao.lower() != "nao" or castracao.lower() != "não":
+                if castracao == "" or (castracao.lower() != "sim" and \
+                        castracao.lower() != "nao" and castracao.lower() != "não"):
                     raise ValueError
                 break
             except ValueError:

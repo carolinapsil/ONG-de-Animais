@@ -23,7 +23,7 @@ class ControladorAnimal:
             if animal.vacina.lower() == "sim" and animal.castracao.lower() == "sim":
                 self.__animais.append(animal)
             else:
-                self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja"
+                self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja "
                                                    "castrado e vacinado")
 
         def alterar_animal(self):
