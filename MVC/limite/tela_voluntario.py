@@ -8,8 +8,18 @@ class TelaVoluntario:
         print("4 - Excluir Voluntario")
         print("0 - Retornar")
 
-        opcao = int(input("Escolha a opcao: "))
-        return opcao
+        while True:
+
+            try:
+                opcoes_validas = [0, 1, 2, 3, 4]
+                opcao = int(input("Escolha uma opção: "))
+                print('\n')
+                if opcao not in opcoes_validas:
+                    raise ValueError
+                return opcao
+            except ValueError:
+                print('Opcao invalida!')
+                print('\n')
 
     def pega_dados_voluntario():
         print("-------- DADOS VOLUNTARIO ----------")

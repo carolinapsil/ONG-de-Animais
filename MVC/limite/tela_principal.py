@@ -12,5 +12,16 @@ class TelaPrincipal():
         print("6 - Adocoes")
         print("7 - Lar Temporario")
         print("0 - Finalizar sistema")
-        opcao = int(input("Escolha a opcao:"))
-        return opcao
+
+        while True:
+
+            try:
+                opcoes_validas = [0, 1, 2, 3, 4, 5, 6, 7]
+                opcao = int(input("Escolha uma opção: "))
+                print('\n')
+                if opcao not in opcoes_validas:
+                    raise ValueError
+                return opcao
+            except ValueError:
+                print('Opcao invalida!')
+                print('\n')
