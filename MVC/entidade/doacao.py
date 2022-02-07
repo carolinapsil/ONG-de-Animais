@@ -10,13 +10,13 @@ class Doacao:
         self.__codigo = codigo
 
     @property
-    def doador(self):
-        return self.__doador
+    def doador(self, doador: Doador):
+        if isinstance(doador, Doador):
+            return self.__doador
 
     @doador.setter
     def doador(self, doador: Doador):
-        if isinstance(doador, Doador):
-            self.__doador = doador
+        self.__doador = doador
 
     @property
     def valor(self):

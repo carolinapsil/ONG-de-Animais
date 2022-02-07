@@ -1,6 +1,6 @@
 from MVC.limite.tela_animal import TelaAnimal
 from MVC.entidade.animal import Animal
-
+from MVC.controle.controlador_doacao import ControladorDoacoes
 
 class ControladorAnimal:
 
@@ -16,14 +16,15 @@ class ControladorAnimal:
                 return None
 
         def incluir_animal(self):
-                dados_animal = self.__tela_animal.pega_dados_animal()
-                animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
-                                dados_animal["sexo"], dados_animal["doenca"], dados_animal["vacina"], dados_animal["castracao"])
+            dados_animal = self.__tela_animal.pega_dados_animal()
+            animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
+                            dados_animal["sexo"], dados_animal["doenca"], dados_animal["vacina"], dados_animal["castracao"])
 
-                if animal.vacina == "sim" and animal.castracao == "sim":
-                    self.__animais.append(animal)
-                else:
-                    self.__tela_animal.mostra_mensagem("ATENCAO: Castrar e Vacinar o Animal")
+            if animal.vacina.lower() == "sim" and animal.castracao.lower() == "sim":
+                self.__animais.append(animal)
+            else:
+                self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja"
+                                                   "castrado e vacinado")
 
         def alterar_animal(self):
             self.lista_animais()

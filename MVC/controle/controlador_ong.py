@@ -95,6 +95,3 @@ class ControladorONG:
             opcao_escolhida = self.__tela_principal.mostra_opcoes()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
-
-controlador_ong = ControladorONG()
-controlador_ong.inicia_sistema()
