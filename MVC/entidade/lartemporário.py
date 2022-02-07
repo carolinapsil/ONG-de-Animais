@@ -23,7 +23,7 @@ class LarTemporario:
 
     @animal.setter
     def animal(self, animal: Animal):
-            self.__animal = animal
+        self.__animal = animal
 
     @property
     def data_entrada(self):
