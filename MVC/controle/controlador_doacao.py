@@ -56,12 +56,6 @@ class ControladorDoacoes():
         for doacao in self.__doacoes:
             self.__tela_doacao.mostra_doacao({"doador": doacao.doador, "data_doacao": doacao.data_doacao,
                                               "valor": doacao.valor, "codigo": doacao.codigo})
-   # def lista_doacao(self):
-    #    for doacao in self.__doacoes:
-     #       self.__tela_doacao.mostra_doacao({"doador": doacao.Doador(),
-      #                                        "data_doacao": doacao.data_doacao(),
-       #                                       "valor": doacao.valor(),
-        #                                      "codigo": doacao.codigo()})
 
     def excluir_doacao(self):
         self.lista_doacao()

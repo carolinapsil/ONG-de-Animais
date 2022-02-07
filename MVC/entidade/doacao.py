@@ -11,8 +11,7 @@ class Doacao:
 
     @property
     def doador(self, doador: Doador):
-        if isinstance(doador, Doador):
-            return self.__doador
+        return self.__doador
 
     @doador.setter
     def doador(self, doador: Doador):
