@@ -19,7 +19,11 @@ class ControladorAnimal:
                 dados_animal = self.__tela_animal.pega_dados_animal()
                 animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
                                 dados_animal["sexo"], dados_animal["doenca"], dados_animal["vacina"], dados_animal["castracao"])
-                self.__animais.append(animal)
+
+                if animal.vacina == "sim" and animal.castracao == "sim":
+                    self.__animais.append(animal)
+                else:
+                    self.__tela_animal.mostra_mensagem("ATENCAO: Castrar e Vacinar o Animal")
 
         def alterar_animal(self):
             self.lista_animais()
