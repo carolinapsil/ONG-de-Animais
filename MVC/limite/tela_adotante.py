@@ -20,7 +20,7 @@ class TelaAdotante:
     def pega_dados_adotante(self):
         print("-------- DADOS ADOTANTE ----------")
         nome = input("Nome: ")
-        data_nascimento = input("Data de nascimento: ")
+        data_nascimento = input("data_nascimento: ")
         telefone = input("Telefone: ")
         genero = input("Genero: ")
         email = input("E-mail: ")
@@ -31,7 +31,7 @@ class TelaAdotante:
 
     def mostra_adotante(self, dados_adotante):
         print("NOME DO ADOTANTE: ", dados_adotante["nome"])
-        print("DATA DE NASCIMENTO DO ADOTANTE: ", dados_adotante["data_nascimento"])
+        print("data nascimento DO ADOTANTE: ", dados_adotante["data_nascimento"])
         print("TELEFONE DO ADOTANTE: ", dados_adotante["telefone"])
         print("GENERO DO ADOTANTE: ", dados_adotante["genero"])
         print("E-MAIL DO ADOTANTE: ", dados_adotante["email"])
