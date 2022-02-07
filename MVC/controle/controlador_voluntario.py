@@ -18,19 +18,18 @@ class ControladorVoluntario:
         return None
 
     def inclui_voluntario(self):
-        dados_voluntario = self.__tela_voluntario.pega_dados_voluntario()
-        voluntario = Voluntario(dados_voluntario["nome"], dados_voluntario["data_nascimento"],
-                                dados_voluntario["telefone"], dados_voluntario["genero"], dados_voluntario["email"],
-                                dados_voluntario["endereco"], dados_voluntario["oferece_lt"])
+        dados_voluntario = self.__tela_voluntario.pega_dados_voluntario(self)
+        voluntario = Voluntario(dados_voluntario["nome"], dados_voluntario["data_nascimento"], dados_voluntario["telefone"],
+                                dados_voluntario["genero"], dados_voluntario["email"], dados_voluntario["endereco"], dados_voluntario["oferece_lt"])
         self.__voluntarios.append(voluntario)
 
     def altera_voluntario(self):
         self.lista_voluntarios()
-        telefone_voluntario = self.__tela_voluntario.seleciona_voluntario()
+        telefone_voluntario = self.__tela_voluntario.seleciona_voluntario(self)
         voluntario = self.pega_voluntario_por_telefone(telefone_voluntario)
 
         if voluntario is not None:
-            novos_dados_voluntario = self.__tela_voluntario.pega_dados_voluntario()
+            novos_dados_voluntario = self.__tela_voluntario.pega_dados_voluntario(self)
             voluntario.nome = novos_dados_voluntario["nome"]
             voluntario.data_nascimento = novos_dados_voluntario["data_nascimento"]
             voluntario.telefone = novos_dados_voluntario["telefone"]
@@ -40,38 +39,38 @@ class ControladorVoluntario:
             voluntario.oferece_lt = novos_dados_voluntario["oferece_lt"]
             self.lista_voluntarios()
         else:
-            self.__tela_voluntario.mostra_mensagem("ATENCAO: Voluntario não existente")
+            self.__tela_voluntario.mostra_mensagem("ATENCAO: voluntario não existente")
 
     def lista_voluntarios(self):
         for voluntario in self.__voluntarios:
-            self.__tela_voluntario.mostra_voluntario({"nome": voluntario.nome,
-                                                      "data_nascimento": voluntario.data_nascimento,
-                                                      "telefone": voluntario.telefone, "genero": voluntario.genero,
-                                                      "email": voluntario.email, "endereco": voluntario.endereco,
-                                                      "oferece_lt": voluntario.oferece_lt})
+            self.__tela_voluntario.mostra_voluntario(self, dados_voluntario({"nome": voluntario.nome, "data_nascimento": voluntario.data_nascimento,
+                                                                             "telefone": voluntario.telefone, "genero": voluntario.genero,
+                                                                             "email": voluntario.email, "endereco": voluntario.endereco}))
 
     def exclui_voluntario(self):
         self.lista_voluntarios()
-        telefone_voluntario = self.__tela_voluntario.seleciona_voluntario()
+        telefone_voluntario = self.__tela_voluntario.seleciona_voluntario(self)
         voluntario = self.pega_voluntario_por_telefone(telefone_voluntario)
 
         if voluntario is not None:
             self.__voluntarios.remove(voluntario)
             self.lista_voluntarios()
         else:
-            self.__tela_voluntario.mostra_mensagem("ATENCAO: Voluntario não existente")
+            self.__tela_voluntario.mostra_mensagem("ATENCAO: voluntario não existente")
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
 
+    def mostra_opcoes(self):
+        self.__tela_voluntario.tela_opcoes(self)
+
     def abre_tela(self):
         self.mostra_opcoes()
-        lista_opcoes = {1: self.inclui_voluntario(), 2: self.altera_voluntario(), 3: self.lista_voluntarios(),
-                        4: self.exclui_voluntario(), 0: self.retornar}
-        while True:
-            opcao_escolhida = self.__tela_voluntario.tela_opcoes()
+        lista_opcoes = {1: self.inclui_voluntario, 2: self.altera_voluntario, 3: self.lista_voluntarios, 4: self.exclui_voluntario,
+                        0: self.retornar}
+
+        continua = True
+        while continua:
+            opcao_escolhida = self.__tela_voluntario.tela_opcoes(self)
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
-
-    def mostra_opcoes(self):
-        self.__tela_voluntario.tela_opcoes()

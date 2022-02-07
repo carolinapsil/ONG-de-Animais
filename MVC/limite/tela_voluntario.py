@@ -35,8 +35,8 @@ class TelaVoluntario:
         print("\n")
 
     def seleciona_voluntario(self):
-        email = input("E-mail do voluntario que deseja selecionar: ")
-        return email
+        telefone_voluntario = input("Telefone do voluntario que deseja selecionar: ")
+        return telefone_voluntario
 
     def mostra_mensagem(self, msg):
         print(msg)
