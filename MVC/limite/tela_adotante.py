@@ -25,7 +25,7 @@ class TelaAdotante:
         genero = input("Genero: ")
         email = input("E-mail: ")
         endereco = input("Endereco: ")
-        idade = input("Idade: ")
+        idade = int(input("Idade: "))
 
         return {"nome": nome, "data_nascimento": data_nascimento, "telefone": telefone,
                 "genero": genero, "email": email, "endereco": endereco, "idade": idade}

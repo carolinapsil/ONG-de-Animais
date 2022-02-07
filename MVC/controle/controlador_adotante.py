@@ -21,7 +21,11 @@ class ControladorAdotante():
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],
                             dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"],
                             dados_adotante["idade"])
-        self.__adotantes.append(adotante)
+
+        if adotante.idade > 20:
+            self.__adotantes.append(adotante)
+        else:
+            self.__tela_adotante.mostra_mensagem(self, "ATENCAO: Idade não permitida")
 
     def altera_adotante(self):
         self.lista_adotantes()

@@ -13,5 +13,5 @@ class Adotante(Pessoa):
         return self.__idade
 
     @idade.setter
-    def idade(self, idade):
+    def idade(self, idade: int):
         self.__idade = idade
