@@ -13,21 +13,32 @@ class TelaLarTemporario:
 
     def pega_dados_lartemporario(self):
         print("-------- DADOS Lar Temporário ----------")
-        voluntario = input("Voluntário: ")
+        voluntario = input("Voluntario: ")
         animal = input("Animal: ")
         data_entrada = input("Data de Entrada: ")
+        codigo = input("Codigo do Lar Temporario: ")
 
-        return {"voluntario": voluntario, "data_entrada": data_entrada, "animal": animal}
+        return {"voluntario": voluntario, "animal": animal, "data_entrada": data_entrada, "codigo": codigo}
 
     def mostra_lartemporario(self, dados_lartemporario):
-        print("Voluntário: ", dados_lartemporario["voluntario"])
+        print("voluntario: ", dados_lartemporario["voluntario"])
         print("Animal: ", dados_lartemporario["animal"])
-        print("Data de Entrada: ", dados_lartemporario["data_entrada"])
+        print("DATA: ", dados_lartemporario["data_entrada"])
+        print("CODIGO: ", dados_lartemporario["codigo"])
         print("\n")
 
+    def mostra_lista_lartemporario(self, lares):
+        print("-------- LISTA DE LARES TEMPORARIOS --------")
+        for lartemporario in lares:
+            print("voluntario: ", lartemporario.voluntario)
+            print("Animal: ", lartemporario.animal)
+            print("Data: ", lartemporario.data_entrada)
+            print("Codigo: ", lartemporario.codigo)
+            print("\n")
+
     def seleciona_lartemporario(self):
-        voluntario = input("Voluntario do Lar Temporario que deseja selecionar: ")
-        return voluntario
+        codigo = input("Codigo da Lar Temporario que deseja selecionar: ")
+        return codigo
 
     def mostra_mensagem(self, msg):
         print(msg)
