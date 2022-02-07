@@ -23,10 +23,39 @@ class TelaAdocao:
 
     def pega_dados_adocao(self):
         print("-------- DADOS ADOÇÃO ----------")
-        adotante = input("Adotante: ")
-        animal = input("Animal: ")
-        data = input("Data de Adocao: ")
-        codigo = input("Codigo da Adocao: ")
+
+        while True:
+            try:
+                adotante = input("Adotante: ")
+                if adotante == "":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, não deixe o campo vazio!")
+        while True:
+            try:
+                animal = input("Animal: ")
+                if animal == "":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, não deixe o campo vazio!")
+        while True:
+            try:
+                data = input("Data de Adocao: ")
+                if data == "" or data.isalpha():
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
+        while True:
+            try:
+                codigo = input("Codigo da Adocao: ")
+                if codigo == "" or codigo.isalpha():
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
 
         return {"adotante": adotante, "animal": animal, "data": data, "codigo": codigo}
 
