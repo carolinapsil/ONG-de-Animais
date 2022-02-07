@@ -11,7 +11,7 @@ class TelaVoluntario:
         opcao = int(input("Escolha a opcao: "))
         return opcao
 
-    def pega_dados_voluntario(self):
+    def pega_dados_voluntario():
         print("-------- DADOS VOLUNTARIO ----------")
         nome = input("Nome: ")
         data_nascimento = input("Data de nascimento: ")
@@ -21,11 +21,12 @@ class TelaVoluntario:
         endereco = input("Endereco: ")
         oferece_lt = input("Oferece lar temporario: ")
 
-        return {"nome": nome, "data nascimento": data_nascimento, "telefone": telefone, "genero": genero,
+        return {"nome": nome, "data_nascimento": data_nascimento, "telefone": telefone, "genero": genero,
                 "email": email, "endereco": endereco, "oferece_lt": oferece_lt}
 
     def mostra_voluntario(self, dados_voluntario):
         print("NOME DO VOLUNTARIO: ", dados_voluntario["nome"])
+        print("DATA NASCIMENTO DO VOLUNTARIO: ", dados_voluntario["data_nascimento"])
         print("IDADE DO VOLUNTARIO: ", dados_voluntario["idade"])
         print("TELEFONE DO VOLUNTARIO: ", dados_voluntario["telefone"])
         print("GENERO DO VOLUNTARIO: ", dados_voluntario["genero"])

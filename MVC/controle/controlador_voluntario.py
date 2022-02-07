@@ -18,7 +18,7 @@ class ControladorVoluntario:
         return None
 
     def inclui_voluntario(self):
-        dados_voluntario = self.__tela_voluntario.pega_dados_voluntario(self)
+        dados_voluntario = self.__tela_voluntario.pega_dados_voluntario()
         voluntario = Voluntario(dados_voluntario["nome"], dados_voluntario["data_nascimento"], dados_voluntario["telefone"],
                                 dados_voluntario["genero"], dados_voluntario["email"], dados_voluntario["endereco"], dados_voluntario["oferece_lt"])
         self.__voluntarios.append(voluntario)
@@ -43,9 +43,9 @@ class ControladorVoluntario:
 
     def lista_voluntarios(self):
         for voluntario in self.__voluntarios:
-            self.__tela_voluntario.mostra_voluntario(self, dados_voluntario({"nome": voluntario.nome, "data_nascimento": voluntario.data_nascimento,
-                                                                             "telefone": voluntario.telefone, "genero": voluntario.genero,
-                                                                             "email": voluntario.email, "endereco": voluntario.endereco}))
+            self.__tela_voluntario.mostra_voluntario(["nome": voluntario.nome, "data_nascimento": voluntario.data_nascimento,
+                                                     "telefone": voluntario.telefone, "genero": voluntario.genero,
+                                                     "email": voluntario.email, "endereco": voluntario.endereco])
 
     def exclui_voluntario(self):
         self.lista_voluntarios()
