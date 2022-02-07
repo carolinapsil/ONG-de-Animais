@@ -17,18 +17,18 @@ class ControladorAdotante():
         return None
 
     def inclui_adotante(self):
-        dados_adotante = self.__tela_adotante.pega_dados_adotante()
+        dados_adotante = self.__tela_adotante.pega_dados_adotante(self)
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],
                             dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"])
         self.__adotantes.append(adotante)
 
     def altera_adotante(self):
         self.lista_adotantes()
-        telefone_adotante = self.__tela_adotante.seleciona_adotante()
+        telefone_adotante = self.__tela_adotante.seleciona_adotante(self)
         adotante = self.pega_adotante_por_telefone(telefone_adotante)
 
         if(adotante is not None):
-          novos_dados_adotante = self.__tela_adotante.pega_dados_adotante()
+          novos_dados_adotante = self.__tela_adotante.pega_dados_adotante(self)
           adotante.nome = novos_dados_adotante["nome"]
           adotante.data_nascimento = novos_dados_adotante["data_nascimento"]
           adotante.telefone = novos_dados_adotante["telefone"]
@@ -41,13 +41,13 @@ class ControladorAdotante():
 
     def lista_adotantes(self):
         for adotante in self.__adotantes:
-            self.__tela_adotante.mostra_adotante({"nome": adotante.nome, "data_nascimento": adotante.data_nascimento,
-                                                  "telefone": adotante.telefone, "genero": adotante.genero, "email":
-                                                      adotante.email, "endereco": adotante.endereco})
+            self.__tela_adotante.mostra_adotante(self, dados_adotante={"nome": adotante.nome, "data_nascimento": adotante.data_nascimento,
+                                                  "telefone": adotante.telefone, "genero": adotante.genero,
+                                                  "email": adotante.email, "endereco": adotante.endereco})
 
     def exclui_adotante(self):
         self.lista_adotantes()
-        telefone_adotante = self.__tela_adotante.seleciona_adotante()
+        telefone_adotante = self.__tela_adotante.seleciona_adotante(self)
         adotante = self.pega_adotante_por_telefone(telefone_adotante)
 
         if (adotante is not None):
@@ -60,14 +60,15 @@ class ControladorAdotante():
         self.__controlador_sistema.abre_tela()
 
     def mostra_opcoes(self):
-        self.__tela_adotante.tela_opcoes()
+        self.__tela_adotante.tela_opcoes(self)
 
     def abre_tela(self):
         self.mostra_opcoes()
         lista_opcoes = {1: self.inclui_adotante, 2: self.altera_adotante, 3: self.lista_adotantes, 4: self.exclui_adotante,
                         0: self.retornar}
+
         continua = True
         while continua:
-            opcao_escolhida = self.__tela_adotante.tela_opcoes()
+            opcao_escolhida = self.__tela_adotante.tela_opcoes(self)
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
