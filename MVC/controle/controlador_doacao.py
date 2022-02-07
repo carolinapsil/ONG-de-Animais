@@ -74,14 +74,12 @@ class ControladorDoacoes():
         else:
             self.__tela_doacao.mostra_mensagem("ATENCAO: Doacao não existente")
 
-    def mostra_opcoes(self):
-        self.__tela_doacao.tela_opcoes()
+
 
     def retornar(self):
         self.__controlador_sistema.abre_tela()
 
     def abre_tela(self):
-        self.mostra_opcoes()
         lista_opcoes = {1: self.incluir_doacao(), 2: self.altera_doacao(), 3: self.lista_doacao, 4: self.excluir_doacao(),
                         0: self.retornar}
 

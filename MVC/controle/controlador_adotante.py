@@ -69,11 +69,7 @@ class ControladorAdotante():
     def retornar(self):
         self.__controlador_sistema.abre_tela()
 
-    def mostra_opcoes(self):
-        self.__tela_adotante.tela_opcoes(self)
-
     def abre_tela(self):
-        self.mostra_opcoes()
         lista_opcoes = {1: self.inclui_adotante, 2: self.altera_adotante, 3: self.lista_adotantes, 4: self.exclui_adotante,
                         0: self.retornar}
 

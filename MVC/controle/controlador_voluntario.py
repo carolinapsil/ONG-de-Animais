@@ -62,11 +62,7 @@ class ControladorVoluntario:
     def retornar(self):
         self.__controlador_sistema.abre_tela()
 
-    def mostra_opcoes(self):
-        self.__tela_voluntario.tela_opcoes(self)
-
     def abre_tela(self):
-        self.mostra_opcoes()
         lista_opcoes = {1: self.inclui_voluntario, 2: self.altera_voluntario, 3: self.lista_voluntarios, 4: self.exclui_voluntario,
                         0: self.retornar}
 
