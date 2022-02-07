@@ -18,7 +18,7 @@ class ControladorVoluntario:
         return None
 
     def inclui_voluntario(self):
-        dados_voluntario = self.__tela_voluntario.pega_dados_voluntario()
+        dados_voluntario = self.__tela_voluntario.pega_dados_voluntario(self)
         voluntario = Voluntario(dados_voluntario["nome"], dados_voluntario["data_nascimento"], dados_voluntario["telefone"],
                                 dados_voluntario["genero"], dados_voluntario["email"], dados_voluntario["endereco"], dados_voluntario["oferece_lt"])
         self.__voluntarios.append(voluntario)
@@ -29,7 +29,7 @@ class ControladorVoluntario:
         voluntario = self.pega_voluntario_por_telefone(telefone_voluntario)
 
         if voluntario is not None:
-            novos_dados_voluntario = self.__tela_voluntario.pega_dados_voluntario()
+            novos_dados_voluntario = self.__tela_voluntario.pega_dados_voluntario(self)
             voluntario.nome = novos_dados_voluntario["nome"]
             voluntario.data_nascimento = novos_dados_voluntario["data_nascimento"]
             voluntario.telefone = novos_dados_voluntario["telefone"]

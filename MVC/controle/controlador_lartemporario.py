@@ -28,7 +28,7 @@ class ControladorLarTemporario:
             novos_dados_lartemporario = self.__tela_lartemporario.pega_dados_lartemporario()
             lartemporario.voluntario = novos_dados_lartemporario["voluntario"]
             lartemporario.animal = novos_dados_lartemporario["animal"]
-            lartemporario.data_entrada = novos_dados_lartemporarioo["data_entrada"]
+            lartemporario.data_entrada = novos_dados_lartemporario["data_entrada"]
             lartemporario.codigo = novos_dados_lartemporario["codigo"]
             self.lista_lartemporario()
         else:

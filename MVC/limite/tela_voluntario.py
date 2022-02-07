@@ -75,11 +75,12 @@ class TelaVoluntario:
         while True:
             try:
                 oferece_lt = input("Oferece lar temporario? ")
-                if oferece_lt.lower() != "sim" or oferece_lt.lower() != "nao" or oferece_lt.lower() != "não":
+                if oferece_lt == "" or (oferece_lt.lower() != "sim" and oferece_lt.lower() != "nao" and
+                                        oferece_lt.lower() != "não"):
                     raise ValueError
                 break
             except ValueError:
-                print("Por favor, preencha o campo corretamente")
+                print("Por favor, preencha o campo corretamente com sim ou nao")
 
         return {"nome": nome, "data_nascimento": data_nascimento, "telefone": telefone, "genero": genero,
                 "email": email, "endereco": endereco, "oferece_lt": oferece_lt}

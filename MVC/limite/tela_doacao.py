@@ -70,7 +70,7 @@ class TelaDoacao:
         print("DOADOR: ", dados_doacao["doador"])
         print("VALOR DA DOACAO: ", dados_doacao["valor"])
         print("DATA DA DOACAO: ", dados_doacao["data_doacao"])
-        print("CODIGO DA DOACAO: "), dados_doacao["codigo"]
+        print("CODIGO DA DOACAO: ", dados_doacao["codigo"])
         print("\n")
 
     def mostra_lista_doacoes(self, doacoes):
