@@ -23,10 +23,39 @@ class TelaLarTemporario:
 
     def pega_dados_lartemporario(self):
         print("-------- DADOS Lar Temporário ----------")
-        voluntario = input("Voluntario: ")
-        animal = input("Animal: ")
-        data_entrada = input("Data de Entrada: ")
-        codigo = input("Codigo do Lar Temporario: ")
+
+        while True:
+            try:
+                voluntario = input("Voluntario: ")
+                if voluntario == "":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, não deixe o campo vazio!")
+        while True:
+            try:
+                animal = input("Animal: ")
+                if animal == "":
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, não deixe o campo vazio!")
+        while True:
+            try:
+                data_entrada = input("Data de entrada: ")
+                if data_entrada == "" or data_entrada.isalpha():
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
+        while True:
+            try:
+                codigo = input("Codigo do Lar Temporario: ")
+                if codigo == "" or codigo.isalpha():
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
 
         return {"voluntario": voluntario, "animal": animal, "data_entrada": data_entrada, "codigo": codigo}
 
