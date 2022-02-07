@@ -30,10 +30,39 @@ class TelaDoacao:
 
     def pega_dados_doacao(self):
         print("-------- DADOS DOACAO ----------")
-        doador = input("Doador: ")
-        valor = input("Valor doado: ")
-        data_doacao = input("Data de doacao: ")
-        codigo = input("Codigo da doacao: ")
+
+        while True:
+            try:
+                doador = input("Doador: ")
+                if (doador == "") or (doador.isalpha() == False):
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
+        while True:
+            try:
+                valor = input("Valor doado: ")
+                if valor == "" or (valor.isnumeric() == False):
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
+        while True:
+            try:
+                data_doacao = input("Data de doacao: ")
+                if data_doacao == "" or data_doacao.isalpha():
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
+        while True:
+            try:
+                codigo = input("Codigo da doacao: ")
+                if codigo == "" or codigo.isalpha():
+                    raise ValueError
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente")
 
         return {"doador": doador, "valor": valor, "data_doacao": data_doacao, "codigo": codigo}
 
