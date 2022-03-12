@@ -16,6 +16,12 @@ class ControladorDoador():
                 return doador
         return None
 
+    def pega_doador_por_nome(self, nome: str):
+        for doador in self.__doadores:
+            if (doador.nome == nome):
+                return doador
+        return None
+
     def inclui_doador(self):
         dados_doador = self.__tela_doador.pega_dados_doador(self)
         doador = Doador(dados_doador["nome"],dados_doador["data_nascimento"], dados_doador["telefone"],

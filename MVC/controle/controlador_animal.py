@@ -19,7 +19,7 @@ class ControladorAnimal:
             dados_animal = self.__tela_animal.pega_dados_animal()
             animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
                             dados_animal["sexo"], dados_animal["doenca"], dados_animal["vacina"], dados_animal["castracao"])
-
+# garantir que nao tenha dois com o mesmo nome
             if animal.vacina.lower() == "sim" and animal.castracao.lower() == "sim":
                 self.__animais.append(animal)
             else:

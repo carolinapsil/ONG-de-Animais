@@ -17,6 +17,12 @@ class ControladorVoluntario:
                 return voluntario
         return None
 
+    def pega_voluntario_por_nome(self, nome: str):
+        for voluntario in self.__voluntarios:
+            if voluntario.nome == nome:
+                return voluntario
+        return None
+
     def inclui_voluntario(self):
         dados_voluntario = self.__tela_voluntario.pega_dados_voluntario(self)
         voluntario = Voluntario(dados_voluntario["nome"], dados_voluntario["data_nascimento"], dados_voluntario["telefone"],

@@ -16,6 +16,12 @@ class ControladorAdotante():
                 return adotante
         return None
 
+    def pega_adotante_por_nome(self, nome: str):
+        for adotante in self.__adotantes:
+            if adotante.nome == nome:
+                return adotante
+        return None
+
     def inclui_adotante(self):
         dados_adotante = self.__tela_adotante.pega_dados_adotante(self)
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],

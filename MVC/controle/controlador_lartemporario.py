@@ -16,8 +16,13 @@ class ControladorLarTemporario:
 
     def incluir_lartemporario(self):
         dados_lartemporario = self.__tela_lartemporario.pega_dados_lartemporario()
-        lartemporario = LarTemporario(dados_lartemporario["voluntario"], dados_lartemporario["animal"], dados_lartemporario["data_entrada"], dados_lartemporario["codigo"])
-        self.__lares.append(lartemporario)
+        if self.__controlador_sistema.controlador_voluntario.pega_voluntario_por_nome(dados_lartemporario["voluntario"])\
+                and self.__controlador_sistema.contolador_animal.pega_animal_por_nome(dados_lartemporario["animal"]):
+            lartemporario = LarTemporario(dados_lartemporario["voluntario"], dados_lartemporario["animal"],
+                                          dados_lartemporario["data_entrada"], dados_lartemporario["codigo"])
+            self.__lares.append(lartemporario)
+        else:
+            self.__tela_lartemporario.mostra_mensagem("ATENCAO: Voluntário e/ou animal não cadastrado")
 
     def altera_lartemporario(self):
         self.lista_lartemporario()
