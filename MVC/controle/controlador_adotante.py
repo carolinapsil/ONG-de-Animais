@@ -4,7 +4,7 @@ from MVC.entidade.adotante import Adotante
 class ControladorAdotante():
     def __init__(self, controlador_sistema):
         self.__adotantes = []
-        self.__tela_adotante = TelaAdotante
+        self.__tela_adotante = TelaAdotante(self)
         self.__controlador_sistema = controlador_sistema
 
     def inicia(self):
@@ -23,7 +23,7 @@ class ControladorAdotante():
         return None
 
     def inclui_adotante(self):
-        dados_adotante = self.__tela_adotante.pega_dados_adotante(self)
+        dados_adotante = self.__tela_adotante.pega_dados_adotante()
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],
                             dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"],
                             dados_adotante["idade"])
@@ -79,8 +79,7 @@ class ControladorAdotante():
         lista_opcoes = {1: self.inclui_adotante, 2: self.altera_adotante, 3: self.lista_adotantes, 4: self.exclui_adotante,
                         0: self.retornar}
 
-        continua = True
-        while continua:
-            opcao_escolhida = self.__tela_adotante.tela_opcoes(self)
+        while True:
+            opcao_escolhida = self.__tela_adotante.open()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
