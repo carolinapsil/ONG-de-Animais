@@ -20,7 +20,7 @@ class TelaAnimalGUI():
               [sg.Column(botoes, vertical_alignment='center', justification='center', k='-C-')]
     ]
 
-    self.__window = sg.Window("Animal", default_element_size=(40, 1)).Layout(layout)
+    self.__window = sg.Window("", default_element_size=(40, 1)).Layout(layout)
 
   def open(self):
       self.__window = None
