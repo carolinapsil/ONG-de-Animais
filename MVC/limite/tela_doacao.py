@@ -30,8 +30,8 @@ class TelaDoacao():
         ]
 
         layout = [
-                    [sg.Text("DOAÇÃO", justification='center', size=(20, 1), font=("Helvetica", 25))],
-                    [sg.Text("O que deseja fazer?", justification='center', size=(15, 1), font=("Helvetica", 25))],
+                    [sg.Text("DOAÇÃO", justification='center', size=(20, 1), font=("Helvetica", 15))],
+                    [sg.Text("O que deseja fazer?", justification='center', size=(20, 1), font=("Helvetica", 10))],
                     [sg.Column(botoes, vertical_alignment='center', justification='center')]
         ]
 
@@ -39,12 +39,12 @@ class TelaDoacao():
 
     def open(self):
         button, values = self.__window.Read()
-        return button, values
+        return button
 
     def close(self):
         self.__window.Close()
 
-    def show_message(self, titulo: str, mensagem: str):
+    def mostra_mensagem(self, titulo: str, mensagem: str):
         sg.Popup(titulo, mensagem)
 
     def pega_dados_doacao(self):
@@ -62,9 +62,10 @@ class TelaDoacao():
                 ]
 
         layout = [
-          [sg.Text('Cadastro Doação', size=(10,1), font=("Helvetica", 25), justification='center')],
-          [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
-        ]
+            [sg.Text('Cadastro Doação', size=(10,1), font=("Helvetica", 15), justification='center')],
+            [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')],
+            [sg.Button("Cadastrar", key=1)]
+                ]
 
         self.__window2 = sg.Window("Cadastro de Doação", default_element_size=(30, 1)).Layout(layout)
 

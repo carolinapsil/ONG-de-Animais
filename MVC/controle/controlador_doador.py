@@ -4,7 +4,7 @@ from MVC.entidade.doador import Doador
 class ControladorDoador():
     def __init__(self, controlador_sistema):
         self.__doadores = []
-        self.__tela_doador = TelaDoador
+        self.__tela_doador = TelaDoador(self)
         self.__controlador_sistema = controlador_sistema
 
     def inicia(self):
@@ -19,11 +19,12 @@ class ControladorDoador():
     def pega_doador_por_nome(self, nome: str):
         for doador in self.__doadores:
             if (doador.nome == nome):
+                print('chegou aqui1')
                 return doador
         return None
 
     def inclui_doador(self):
-        dados_doador = self.__tela_doador.pega_dados_doador(self)
+        dados_doador = self.__tela_doador.pega_dados_doador()
         doador = Doador(dados_doador["nome"],dados_doador["data_nascimento"], dados_doador["telefone"],
                             dados_doador["genero"], dados_doador["email"], dados_doador["endereco"])
         self.__doadores.append(doador)
@@ -70,6 +71,6 @@ class ControladorDoador():
                         0: self.retornar}
 
         while True:
-            opcao_escolhida = self.__tela_doador.tela_opcoes(self)
+            opcao_escolhida = self.__tela_doador.open()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
