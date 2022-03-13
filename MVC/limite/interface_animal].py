@@ -10,12 +10,6 @@ class AnimalView:
     def init_components(self):
         sg.ChangeLookAndFeel("Reddit")
 
-    column1 = [[sg.Text('Column 1', background_color='#F7F3EC',
-                justification='center', size=(10, 1))],
-                [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box1')],
-                [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box2')],
-                [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box3')]]
-
     layout = [[sg.Text('Inserir os dados do Animal abaixo: ', size=(30, 1),
                         justification='center', font=("Helvetica", 25), relief=sg.RELIEF_RIDGE)],
                 [sg.Text('Nome', size=(15, 1)), sg.InputText('nome', key='nome')],
