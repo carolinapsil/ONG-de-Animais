@@ -40,3 +40,39 @@ class TelaDoadorGUI():
 
     def show_message(self, titulo: str, mensagem: str):
         sg.Popup(titulo, mensagem)
+
+    def pega_dados_doador(self):
+        sg.ChangeLookAndFeel('BlueMono')
+
+        entrada = [
+                    [sg.Text("Nome")],
+                    [sg.InputText(size=(20,2), key="nome")],
+                    [sg.Text("Data de nascimento")],
+                    [sg.InputText(size=(20,2), key="data_nascimento")],
+                    [sg.Text('Telefone')],
+                    [sg.InputText(size=(20, 2), key="telefone")],
+                    [sg.Text('Gênero')],
+                    [sg.InputCombo(('Feminino', 'Masculino'), size=(20, 3), key='genero')],
+                    [sg.Text('Email')],
+                    [sg.InputText(size=(20, 2), key="email")],
+                    [sg.Text('Endereço')],
+                    [sg.InputText(size=(20, 2), key="endereco")],
+                    [sg.Button("Cadastrar")]
+                ]
+
+        layout = [
+          [sg.Text('Login', size=(10,1), font=("Helvetica", 25), justification='center')],
+          [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
+        ]
+
+        self.__window2 = sg.Window("Cadastro de Doador", default_element_size=(30, 1)).Layout(layout)
+
+    def abrir_cadastro_doador(self):
+        self.pega_dados_doador()
+        button, values = self.__window2.Read()
+        return values
+
+    def fechar_cadastro_doador(self):
+        if self.__window2 != None:
+            self.__window2.Close()
+        self.__window2 = None
