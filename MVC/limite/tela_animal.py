@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import Button
 
-class TelaAnimalGUI():
+class TelaAnimal:
   def __init__(self):
     self.__window = None
     self.__window2 = None
