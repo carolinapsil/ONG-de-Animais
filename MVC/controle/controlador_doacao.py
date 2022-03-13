@@ -79,4 +79,4 @@ class ControladorDoacoes():
 
         continua = True
         while continua:
-            lista_opcoes[self.__tela_doacao.tela_opcoes()]()
+            lista_opcoes[self.__tela_doacao.open()]()
