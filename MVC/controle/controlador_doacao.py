@@ -33,12 +33,15 @@ class ControladorDoacoes():
         doacao = self.pega_doacao_por_codigo(codigo_doacao)
 
         if(doacao is not None):
-          novos_dados_doacao = self.__tela_doacao.pega_dados_doacao()
-          doacao.doador = novos_dados_doacao["doador"]
-          doacao.valor = novos_dados_doacao["valor"]
-          doacao.data_doacao = novos_dados_doacao["data_doacao"]
-          doacao.codigo = novos_dados_doacao["codigo"]
-          self.lista_doacao()
+            novos_dados_doacao = self.__tela_doacao.pega_dados_doacao()
+            if self.__controlador_sistema.controlador_doador.pega_doador_por_nome(novos_dados_doacao["doador"]):
+                doacao.doador = novos_dados_doacao["doador"]
+                doacao.valor = novos_dados_doacao["valor"]
+                doacao.data_doacao = novos_dados_doacao["data_doacao"]
+                doacao.codigo = novos_dados_doacao["codigo"]
+                self.lista_doacao()
+            else:
+                self.__tela_doacao.mostra_mensagem("ATENCAO: Doador não cadastrado")
         else:
           self.__tela_doacao.mostra_mensagem("ATENCAO: Doacao não existente")
 

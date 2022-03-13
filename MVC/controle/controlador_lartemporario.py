@@ -31,11 +31,15 @@ class ControladorLarTemporario:
 
         if lartemporario is not None:
             novos_dados_lartemporario = self.__tela_lartemporario.pega_dados_lartemporario()
-            lartemporario.voluntario = novos_dados_lartemporario["voluntario"]
-            lartemporario.animal = novos_dados_lartemporario["animal"]
-            lartemporario.data_entrada = novos_dados_lartemporario["data_entrada"]
-            lartemporario.codigo = novos_dados_lartemporario["codigo"]
-            self.lista_lartemporario()
+            if self.__controlador_sistema.controlador_voluntario.pega_voluntario_por_nome(novos_dados_lartemporario["voluntario"]) \
+                    and self.__controlador_sistema.contolador_animal.pega_animal_por_nome(novos_dados_lartemporario["animal"]):
+                lartemporario.voluntario = novos_dados_lartemporario["voluntario"]
+                lartemporario.animal = novos_dados_lartemporario["animal"]
+                lartemporario.data_entrada = novos_dados_lartemporario["data_entrada"]
+                lartemporario.codigo = novos_dados_lartemporario["codigo"]
+                self.lista_lartemporario()
+            else:
+                self.__tela_lartemporario.mostra_mensagem("ATENCAO: Voluntário e/ou animal não cadastrado")
         else:
             self.__tela_lartemporario.mostra_mensagem("ATENCAO: Lar Temporário não existente")
 

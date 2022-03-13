@@ -30,11 +30,15 @@ class ControladorAdocao:
 
         if adocao is not None:
             novos_dados_adocao = self.__tela_adocao.pega_dados_adocao()
-            adocao.adotante = novos_dados_adocao["adotante"]
-            adocao.animal = novos_dados_adocao["animal"]
-            adocao.data = novos_dados_adocao["data"]
-            adocao.codigo = novos_dados_adocao["codigo"]
-            self.lista_adocao()
+            if self.__controlador_sistema.controlador_adotante.pega_adotante_por_nome(novos_dados_adocao["adotante"])\
+                and self.__controlador_sistema.controlador_animal.pega_animal_por_nome(novos_dados_adocao["animal"]):
+                adocao.adotante = novos_dados_adocao["adotante"]
+                adocao.animal = novos_dados_adocao["animal"]
+                adocao.data = novos_dados_adocao["data"]
+                adocao.codigo = novos_dados_adocao["codigo"]
+                self.lista_adocao()
+            else:
+                self.__tela_adocao.mostra_mensagem("Adotante e/ou animal não cadastrado")
         else:
             self.__tela_adocao.mostra_mensagem("ATENCAO: Adoção não existente")
 
