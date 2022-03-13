@@ -64,6 +64,7 @@ class TelaAdotante():
                     [sg.InputText(size=(20,2), key="data_nascimento")],
                     [sg.Text('Telefone')],
                     [sg.InputText(size=(20, 2), key="telefone")],
+                    [sg.Text('Gênero')],
                     [sg.InputCombo(('Feminino', 'Masculino'), size=(20, 3), key='genero')],
                     [sg.Text('Email')],
                     [sg.InputText(size=(20, 2), key="email")],
@@ -71,13 +72,13 @@ class TelaAdotante():
                     [sg.InputText(size=(20, 2), key="endereco")],
                     [sg.Text('Idade')],
                     [sg.Slider(range=(21, 100), orientation='h', size=(34, 20), default_value=21, key="idade")],
-                    [sg.Button("Cadastrar")]
                 ]
 
         layout = [
-          [sg.Text('Cadastro de Adotante', size=(10,1), font=("Helvetica", 25), justification='center')],
-          [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
-        ]
+            [sg.Text('Cadastro de Adotante', size=(10,1), font=("Helvetica", 25), justification='center')],
+            [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')],
+            [sg.Button("Cadastrar", key=1)]
+                 ]
 
         self.__window2 = sg.Window("Cadastro de Adotante", default_element_size=(30, 1)).Layout(layout)
 
