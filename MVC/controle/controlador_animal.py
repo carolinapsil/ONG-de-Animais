@@ -27,7 +27,7 @@ class ControladorAnimal:
                     self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja "
                                                        "castrado e vacinado")
             else:
-                self.__tela_animal.mostra_mensagem("Já existe um animal cadastrado com esse nome! Por favor, tente outro)
+                self.__tela_animal.mostra_mensagem("Já existe um animal cadastrado com esse nome! Por favor, tente outro")
 
         def alterar_animal(self):
             self.lista_animais()
