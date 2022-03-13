@@ -17,7 +17,7 @@ class ControladorLarTemporario:
     def incluir_lartemporario(self):
         dados_lartemporario = self.__tela_lartemporario.pega_dados_lartemporario()
         if self.__controlador_sistema.controlador_voluntario.pega_voluntario_por_nome(dados_lartemporario["voluntario"])\
-                and self.__controlador_sistema.contolador_animal.pega_animal_por_nome(dados_lartemporario["animal"]):
+                and self.__controlador_sistema.controlador_animal.pega_animal_por_nome(dados_lartemporario["animal"]):
             lartemporario = LarTemporario(dados_lartemporario["voluntario"], dados_lartemporario["animal"],
                                           dados_lartemporario["data_entrada"], dados_lartemporario["codigo"])
             self.__lares.append(lartemporario)

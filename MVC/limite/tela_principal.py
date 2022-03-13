@@ -11,12 +11,13 @@ class TelaPrincipal():
         print("5 - Voluntario")
         print("6 - Adocoes")
         print("7 - Lar Temporario")
+        print("8 - Pesquisar animais disponíveis para adoção")
         print("0 - Finalizar sistema")
 
         while True:
 
             try:
-                opcoes_validas = [0, 1, 2, 3, 4, 5, 6, 7]
+                opcoes_validas = [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 opcao = int(input("Escolha uma opção: "))
                 print('\n')
                 if opcao not in opcoes_validas:

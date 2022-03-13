@@ -72,3 +72,10 @@ class ControladorAnimal:
             continua = True
             while continua:
                 lista_opcoes[self.__tela_animal.tela_opcoes()]()
+
+        def animais_disponiveis(self):
+            lista_disponiveis = []
+            for animal in self.__animais:
+                if not self.__controlador_sistema.controlador_adocao.pega_adocao_por_animal(animal.nome):
+                    lista_disponiveis.append(animal.nome)
+                    self.__tela_animal.mostra_mensagem(animal.nome)
