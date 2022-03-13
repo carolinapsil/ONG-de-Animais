@@ -17,10 +17,13 @@ class TelaPrincipal():
                   [sg.Button('Pesquisar animais disponíveis para adoção', size=(20, 2), key=8)],
                   [sg.Button('Finalizar sistema', size=(20, 2), key=0)]]
 
-        layout = [[sg.Text('ONG de Animais', size=(15, 2), font=('Montserrat', 20), justification=('center'))],
+        layout = [[sg.Text('ONG de Animais', size=(15, 2), font=('Helvetica', 20), justification=('center'))],
+                  [sg.Text('Aviso: Antes de cadastrar uma adoção, doação ou um lar temporário, certifique-se de '
+                           'cadastrar o animal, adotante, doador ou voluntário!', size=(15, 2),
+                           font=('Helvetica', 20), justification=('center'))],
                   [sg.Column(botoes, vertical_alignment='center', justification='center', k='-C-')]]
 
-        self.__window = sg.Window("oCurso", default_element_size=(40, 1)).Layout(layout)
+        self.__window = sg.Window("ONG de Animais", default_element_size=(40, 1)).Layout(layout)
 
     def open(self):
         self.init_components()
