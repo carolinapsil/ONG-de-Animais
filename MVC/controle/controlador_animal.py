@@ -1,4 +1,4 @@
-from MVC.limite.tela_animal_antiga import TelaAnimal
+from MVC.limite.tela_animal import TelaAnimal
 from MVC.entidade.animal import Animal
 from MVC.controle.controlador_doacao import ControladorDoacoes
 
@@ -6,7 +6,7 @@ class ControladorAnimal:
 
         def __init__(self, controlador_sistema):
                 self.__animais = []
-                self.__tela_animal = TelaAnimal()
+                self.__tela_animal = TelaAnimal
                 self.__controlador_sistema = controlador_sistema
 
         def pega_animal_por_nome(self, nome: str):
@@ -69,9 +69,10 @@ class ControladorAnimal:
 
         def abre_tela(self):
             lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.lista_animais, 4: self.excluir_animal, 0: self.retornar}
+
             continua = True
             while continua:
-                lista_opcoes[self.__tela_animal.tela_opcoes()]()
+                lista_opcoes[self.__tela_animal.open()]()
 
         def animais_disponiveis(self):
             lista_disponiveis = []

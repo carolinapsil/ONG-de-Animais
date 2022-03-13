@@ -1,4 +1,4 @@
-class TelaAnimal:
+class TelaAnimalAntiga:
     def tela_opcoes(self):
         print("-------- ANIMAIS ----------")
         print("Escolha a opcao")
