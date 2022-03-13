@@ -8,6 +8,8 @@ class TelaAdocaoGUI():
         self.__controlador_adocao = controlador_adocao
         self.__window = None
         self.__window2 = None
+        self.__window3 = None
+        self.__window4 = None
         self.init_components()
 
     @property
@@ -17,6 +19,14 @@ class TelaAdocaoGUI():
     @property
     def window2(self):
         return self.__window2
+
+    @property
+    def window3(self):
+        return self.__window3
+
+    @property
+    def window4(self):
+        return self.__window4
 
     def init_components(self):
         sg.ChangeLookAndFeel('BlueMono')
@@ -61,11 +71,11 @@ class TelaAdocaoGUI():
                 ]
 
         layout = [
-          [sg.Text('Adoção', size=(10,1), font=("Helvetica", 25), justification='center')],
-          [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
+                  [sg.Text('Adoção', size=(10,1), font=("Helvetica", 25), justification='center')],
+                  [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
         ]
 
-        self.__window2 = sg.Window("Cadastro de Adoção", default_element_size=(30, 1)).Layout(layout)
+        self.__window2 = sg.Window("Adoção", default_element_size=(30, 1)).Layout(layout)
 
     def abrir_cadastro_adocao(self):
         self.pega_dados_adocao()
@@ -76,3 +86,30 @@ class TelaAdocaoGUI():
         if self.__window2 != None:
             self.__window2.Close()
         self.__window2 = None
+
+    def mostra_adocao(self, dados_adocao):
+        sg.ChangeLookAndFeel('BlueMono')
+
+        dados = [
+        [sg.Text("ADOTANTE: ", dados_adocao["adotante"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("ANIMAL: ", dados_adocao["animal"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("DATA ADOÇÃO: ", dados_adocao["data"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("CÓDIGO DA ADOÇÃO: ", dados_adocao["codigo"], font=("Helvetica", 25), justification='center')],
+        ]
+
+        layout = [
+            [sg.Text('Adoções', size=(10, 1), font=("Helvetica", 25), justification='center')],
+            [sg.Column(dados, vertical_alignment='center', justification='center', k='-C-')]
+        ]
+
+        self.__window3 = sg.Window("Adoção", default_element_size=(30, 1)).Layout(layout)
+
+    def seleciona_doacao(self):
+        sg.ChangeLookAndFeel('BlueMono')
+
+        layout = [
+                    [sg.Text("Digite o código da adoção que deseja selecionar")],
+                    [sg.InputText(size=(20, 2), key="codigo")],
+        ]
+
+        self.__window4 = sg.Window("Adoção", default_element_size=(30, 1)).Layout(layout)
