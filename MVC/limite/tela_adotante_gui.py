@@ -61,12 +61,13 @@ class TelaAdotanteGUI():
                     [sg.InputText(size=(20, 2), key="email")],
                     [sg.Text('Endereço')],
                     [sg.InputText(size=(20, 2), key="endereco")],
+                    [sg.Text('Idade')],
                     [sg.Slider(range=(21, 100), orientation='h', size=(34, 20), default_value=21, key="idade")],
                     [sg.Button("Cadastrar")]
                 ]
 
         layout = [
-          [sg.Text('Login', size=(10,1), font=("Helvetica", 25), justification='center')],
+          [sg.Text('Cadastro de Adotante', size=(10,1), font=("Helvetica", 25), justification='center')],
           [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
         ]
 
