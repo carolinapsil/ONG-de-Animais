@@ -1,104 +1,84 @@
-class TelaAnimal:
-    def tela_opcoes(self):
-        print("-------- ANIMAIS ----------")
-        print("Escolha a opcao")
-        print("1 - Incluir Animais")
-        print("2 - Alterar Animais")
-        print("3 - Listar Animais")
-        print("4 - Excluir Animais")
-        print("0 - Retornar")
+import PySimpleGUI as sg
+from PySimpleGUI.PySimpleGUI import Button
 
-        while True:
+class TelaAnimalGUI():
+  def __init__(self):
+    self.__window = None
+    self.__window2 = None
 
-            try:
-                opcoes_validas = [0, 1, 2, 3, 4]
-                opcao = int(input("Escolha uma opção: "))
-                print('\n')
-                if opcao not in opcoes_validas:
-                    raise ValueError
-                return opcao
-            except ValueError:
-                print('Opcao invalida!')
-                print('\n')
+  def tela_opcoes(self):
+    sg.ChangeLookAndFeel('DarkBlue')
 
-    def pega_dados_animal(self):
-        print("-------- DADOS ANIMAL ----------")
+    botoes = [
+              [sg.Button('Cadastrar', size=(20,2), key=1)],
+              [sg.Button('Alterar', size=(20,2), key=2)],
+              [sg.Button('Excluir', size=(20,2), key=3)],
+              [sg.Button('Listar', size=(20, 2), key=4)],
+              [sg.Button('Retornar', size=(20, 2), key=0)]
+            ]
+    layout = [[sg.Text('Animais', size=(10, 1), font=("Helvetica", 25), justification='center')],
+              [sg.Column(botoes, vertical_alignment='center', justification='center', k='-C-')]
+    ]
 
-        while True:
-            try:
-                nome = input("Nome: ")
-                if nome == "":
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, não deixe o campo vazio!")
-        while True:
-            try:
-                chegada = input("Chegada: ")
-                if chegada == "":
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, não deixe o campo vazio!")
-        while True:
-            try:
-                ano_nascimento = input("ano_nascimento: ")
-                if ano_nascimento == "" or ano_nascimento.isalpha():
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, preencha o campo corretamente com um número.")
-        while True:
-            try:
-                sexo = input("Macho ou femea? ")
-                if (sexo == "") or (sexo.lower() != "macho" and sexo.lower() != "femea" and sexo.lower() != "fêmea"):
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, preencha o campo corretamente com a opcao macho ou femea")
-        while True:
-            try:
-                doenca = input("Possui alguma doenca? ")
-                if doenca == "" or (doenca.lower() != "sim" and doenca.lower() != "nao" and doenca.lower() != "não"):
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, preencha o campo corretamente com sim ou nao")
-        while True:
-            try:
-                vacina = input("Vacinado? ")
-                if vacina == "" or (vacina.lower() != "sim" and vacina.lower() != "nao" and vacina.lower() != "não"):
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, preencha o campo corretamente com sim ou nao")
-        while True:
-            try:
-                castracao = input("Castrado? ")
-                if castracao == "" or (castracao.lower() != "sim" and \
-                        castracao.lower() != "nao" and castracao.lower() != "não"):
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, preencha o campo corretamente com sim ou nao")
+    self.__window = sg.Window("", default_element_size=(40, 1)).Layout(layout)
 
-        return {"nome": nome, "chegada": chegada, "ano_nascimento": ano_nascimento, "sexo": sexo, "doenca": doenca, "vacina": vacina,
-                "castracao": castracao}
+  def open(self):
+      self.__window = None
+      self.tela_opcoes()
+      button, values = self.__window.Read()
+      return button
 
-    def mostra_animal(self, dados_animal):
-        print("NOME DO ANIMAL: ", dados_animal["nome"])
-        print("CHEGADA DO ANIMAL: ", dados_animal["chegada"])
-        print("ANO DE NASCIMENTO DO ANIMAL: ", dados_animal["ano_nascimento"])
-        print("O ANIMAL POSSUI DOENÇAS?: ", dados_animal["doenca"])
-        print("VACINAS DO ANIMAL: ", dados_animal["vacina"])
-        print("O ANIMAL É CASTRADO?: ", dados_animal["castracao"])
-        print("\n")
+  def close(self):
+      if self.__window != None:
+          self.__window.Close()
+      self.__window = None
 
-    def seleciona_animal(self):
+  def pega_dados_animal(self):
+      sg.ChangeLookAndFeel('DarkBlue')
+
+      entrada = [[sg.Text('Inserir os dados do Animal abaixo: ', size=(30, 1),
+                   justification='center', font=("Helvetica", 25), relief=sg.RELIEF_RIDGE)],
+                    [sg.Text('Nome', size=(15, 1)), sg.InputText('nome', key='nome')],
+                    [sg.Text('Chegada', size=(15, 1)), sg.InputText('chegada', key='chegada')],
+                    [sg.Text('Ano Nascimento', size=(15, 1)), sg.InputText('ano_nascimento', key='ano_nascimento')],
+                    [sg.Text("Qual o sexo do Animal:")],
+                    [sg.InputText('sexo', key='sexo')],
+                    [sg.Text("O Animal possui doenças?:")],
+                    [sg.InputText('doenças', key='doenca')],
+                    [sg.Text("O Animal está vacinado?:")],
+                    [sg.InputText('vacinação', key='vacina')],
+                    [sg.Text("O Animal está castrado?:")],
+                    [sg.InputText('castração', key='castracao')],
+                    [sg.Submit(tooltip='Clique para enviar os dados'), sg.Cancel()]]
+
+      layout = [
+          [sg.Text('Animal', size=(10, 1), font=("Helvetica", 25), justification='center')],
+          [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
+      ]
+
+      self.__window2 = sg.Window("Animal", default_element_size=(30, 1)).Layout(layout)
+
+  def mostra_animal(self):
+      self.pega_dados_animal()
+      button, values = self.__window2.Read()
+      return values
+
+  def fecha_animal(self):
+      if self.__window2 != None:
+          self.__window2.Close()
+      self.__window2 = None
+
+  def seleciona_animal(self):
         nome = input("Nome do animal que deseja selecionar: ")
-        return nome
+            return nome
 
-    def mostra_mensagem(self, msg):
-        print(msg)
+  def mostra_mensagem(self, msg):
+      sg.Popup(msg)
+
+    window = sg.Window('Everything bagel', default_element_size=(40, 1), grab_anywhere = False).Layout(layout)
+    button, values = window.Read()
+    sg.Popup('Animais',
+             'A opção selecionada foi "{}"'.format(button),
+             'As informações são', values)
 
 #teste commit

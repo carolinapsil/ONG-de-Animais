@@ -1,4 +1,4 @@
-from MVC.limite.tela_animal import TelaAnimal
+from MVC.limite.tela_animal_antiga import TelaAnimal
 from MVC.entidade.animal import Animal
 from MVC.controle.controlador_doacao import ControladorDoacoes
 
