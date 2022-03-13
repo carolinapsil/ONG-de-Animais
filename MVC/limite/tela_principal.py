@@ -10,12 +10,12 @@ class TelaPrincipal():
         botoes = [[sg.Button('Doações', size=(30, 2), key=1, button_color='#7B68EE')],
                   [sg.Button('Animais', size=(30, 2), key=2, button_color='#7B68EE')],
                   [sg.Button('Adotante', size=(30, 2), key=3, button_color='#7B68EE')],
-                  [sg.Button('Doador', size=(30, 2), key=4)],
-                  [sg.Button('Voluntário', size=(30, 2), key=5)],
-                  [sg.Button('Adoções', size=(30, 2), key=6)],
-                  [sg.Button('Lar Temporário', size=(30, 2), key=7)],
-                  [sg.Button('Pesquisar animais disponíveis para adoção', size=(30, 2), key=8)],
-                  [sg.Button('Finalizar sistema', size=(30, 2), key=0)]]
+                  [sg.Button('Doador', size=(30, 2), key=4, button_color='#7B68EE')],
+                  [sg.Button('Voluntário', size=(30, 2), key=5, button_color='#7B68EE')],
+                  [sg.Button('Adoções', size=(30, 2), key=6, button_color='#7B68EE')],
+                  [sg.Button('Lar Temporário', size=(30, 2), key=7, button_color='#7B68EE')],
+                  [sg.Button('Pesquisar animais disponíveis para adoção', size=(30, 2), key=8, button_color='#7B68EE')],
+                  [sg.Button('Finalizar sistema', size=(30, 2), key=0, button_color='#7B68EE')]]
 
         layout = [[sg.Text('ONG de Animais', size=(50, 2), font=('Helvetica', 20), justification=('center'))],
                   [sg.Text('Aviso: Antes de cadastrar uma adoção, doação ou um lar temporário, certifique-se de '
