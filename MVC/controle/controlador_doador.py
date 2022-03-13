@@ -19,6 +19,7 @@ class ControladorDoador():
     def pega_doador_por_nome(self, nome: str):
         for doador in self.__doadores:
             if (doador.nome == nome):
+                print('chegou aqui1')
                 return doador
         return None
 

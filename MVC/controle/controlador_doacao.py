@@ -19,13 +19,13 @@ class ControladorDoacoes():
     def incluir_doacao(self):
         self.__controlador_sistema.controlador_doador.lista_doadores()
         self.__controlador_sistema.controlador_doacao.lista_doacao()
-        dados_doacao = self.__tela_doacao.pega_dados_doacao()
+        dados_doacao = self.__tela_doacao.abrir_cadastro_doacao()
         if self.__controlador_sistema.controlador_doador.pega_doador_por_nome(dados_doacao["doador"]):
             doacao = Doacao(dados_doacao["doador"], dados_doacao["valor"], dados_doacao["data_doacao"],
                             dados_doacao["codigo"])
             self.__doacoes.append(doacao)
         else:
-            self.__tela_doacao.mostra_mensagem("ATENCAO: Doador não cadastrado")
+            self.__tela_doacao.mostra_mensagem("ERRO!", "Doador não cadastrado")
 
     def altera_doacao(self):
         self.lista_doacao()
@@ -41,7 +41,9 @@ class ControladorDoacoes():
                 doacao.codigo = novos_dados_doacao["codigo"]
                 self.lista_doacao()
             else:
+                self.__tela_doacao.fechar_cadastro_doacao()
                 self.__tela_doacao.mostra_mensagem("ATENCAO: Doador não cadastrado")
+
         else:
           self.__tela_doacao.mostra_mensagem("ATENCAO: Doacao não existente")
 

@@ -62,9 +62,10 @@ class TelaDoacao():
                 ]
 
         layout = [
-          [sg.Text('Cadastro Doação', size=(10,1), font=("Helvetica", 25), justification='center')],
-          [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
-        ]
+            [sg.Text('Cadastro Doação', size=(10,1), font=("Helvetica", 15), justification='center')],
+            [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')],
+            [sg.Button("Cadastrar", key=1)]
+                ]
 
         self.__window2 = sg.Window("Cadastro de Doação", default_element_size=(30, 1)).Layout(layout)
 
