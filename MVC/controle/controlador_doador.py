@@ -70,6 +70,6 @@ class ControladorDoador():
                         0: self.retornar}
 
         while True:
-            opcao_escolhida = self.__tela_doador.tela_opcoes(self)
+            opcao_escolhida = self.__tela_doador.open(self)
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()
