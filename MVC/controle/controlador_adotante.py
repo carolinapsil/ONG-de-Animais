@@ -1,5 +1,6 @@
 from MVC.limite.tela_adotante import TelaAdotante
 from MVC.entidade.adotante import Adotante
+from MVC.exceptions.IdadeNaoPermitidaException import IdadeNaoPermitida
 
 class ControladorAdotante():
     def __init__(self, controlador_sistema):
@@ -27,11 +28,13 @@ class ControladorAdotante():
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],
                             dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"],
                             dados_adotante["idade"])
-
-        if adotante.idade > 20:
+        try:
+            if adotante.idade <= 20:
+                raise IdadeNaoPermitida
             self.__adotantes.append(adotante)
-        else:
-            self.__tela_adotante.mostra_mensagem(self, "ATENCAO: Idade não permitida")
+
+        except IdadeNaoPermitida:
+            self.__tela_adotante.mostra_mensagem(self, "É necessário ter, no mínimo, 21 anos para adotar um animal da ONG.")
 
     def altera_adotante(self):
         self.lista_adotantes()
