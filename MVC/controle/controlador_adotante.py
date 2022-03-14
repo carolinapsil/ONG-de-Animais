@@ -23,7 +23,7 @@ class ControladorAdotante():
         return None
 
     def inclui_adotante(self):
-        dados_adotante = self.__tela_adotante.pega_dados_adotante()
+        dados_adotante = self.__tela_adotante.abrir_cadastro_adotante()
         adotante = Adotante(dados_adotante["nome"],dados_adotante["data_nascimento"], dados_adotante["telefone"],
                             dados_adotante["genero"], dados_adotante["email"], dados_adotante["endereco"],
                             dados_adotante["idade"])
