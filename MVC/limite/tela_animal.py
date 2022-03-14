@@ -51,9 +51,9 @@ class TelaAnimal:
                 sexo = input("Macho ou femea? ")
                 if (sexo == "") or (sexo.lower() != "macho" and sexo.lower() != "femea" and sexo.lower() != "fêmea"):
                     raise ValueError
-            break
-        except ValueError:
-            print("Por favor, preencha o campo corretamente com a opcao macho ou femea")
+                break
+            except ValueError:
+                print("Por favor, preencha o campo corretamente com a opcao macho ou femea")
 
         while True:
             try:
