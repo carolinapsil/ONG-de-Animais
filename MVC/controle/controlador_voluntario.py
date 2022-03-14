@@ -1,4 +1,4 @@
-from MVC.limite.tela_voluntario import TelaVoluntario
+from MVC.limite.tela_voluntario_antiga import TelaVoluntario
 from MVC.entidade.voluntario import Voluntario
 
 

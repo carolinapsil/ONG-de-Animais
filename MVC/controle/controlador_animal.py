@@ -6,7 +6,7 @@ class ControladorAnimal:
 
         def __init__(self, controlador_sistema):
                 self.__animais = []
-                self.__tela_animal = TelaAnimal()
+                self.__tela_animal = TelaAnimal(self)
                 self.__controlador_sistema = controlador_sistema
 
         def pega_animal_por_nome(self, nome: str):
@@ -16,6 +16,7 @@ class ControladorAnimal:
                 return None
 
         def incluir_animal(self):
+            self.__controlador_sistema.controlador_animal.lista_animais()
             dados_animal = self.__tela_animal.pega_dados_animal()
             if not self.__controlador_sistema.controlador_animal.pega_animal_por_nome(dados_animal["nome"]):
                 animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
@@ -52,6 +53,9 @@ class ControladorAnimal:
                 self.__tela_animal.mostra_animal({"nome": animal.nome, "chegada": animal.chegada, "ano_nascimento": animal.ano_nascimento,
                                                 "sexo": animal.sexo, "doenca": animal.doenca, "vacina": animal.vacina, "castracao": animal.castracao})
 
+        def retornar(self):
+            self.__controlador_sistema.abre_tela()
+
 
         def excluir_animal(self):
             self.lista_animais()
@@ -64,14 +68,13 @@ class ControladorAnimal:
             else:
                 self.__tela_animal.mostra_mensagem("ATENCAO: Animal não existente")
 
-        def retornar(self):
-            self.__controlador_sistema.abre_tela()
-
         def abre_tela(self):
             lista_opcoes = {1: self.incluir_animal, 2: self.alterar_animal, 3: self.lista_animais, 4: self.excluir_animal, 0: self.retornar}
-            continua = True
-            while continua:
-                lista_opcoes[self.__tela_animal.tela_opcoes()]()
+
+            while True:
+                opcao_escolhida = self.__tela_animal.open()
+                funcao_escolhida = lista_opcoes[opcao_escolhida]
+                funcao_escolhida()
 
         def animais_disponiveis(self):
             lista_disponiveis = []

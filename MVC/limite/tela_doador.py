@@ -1,100 +1,133 @@
-#from MVC.controle.controlador_doador import ControladorDoador
+import PySimpleGUI as sg
+from PySimpleGUI import Button
 
 
 class TelaDoador():
 
     def __init__(self, controlador_doador):
         self.__controlador_doador = controlador_doador
+        self.__window = None
+        self.__window2 = None
+        self.__window3 = None
+        self.__window4 = None
+        self.init_components()
 
-    def tela_opcoes(self):
-        print("-------- DOADOR ----------")
-        print("Escolha a opcao")
-        print("1 - Incluir Doador")
-        print("2 - Alterar Doador")
-        print("3 - Listar Doador")
-        print("4 - Excluir Doador")
-        print("0 - Retornar")
+    @property
+    def window(self):
+        return self.__window
 
-        while True:
 
-            try:
-                opcoes_validas = [0, 1, 2, 3]
-                opcao = int(input("Escolha uma opção: "))
-                print('\n')
-                if opcao not in opcoes_validas:
-                    raise ValueError
-                return opcao
-            except ValueError:
-                print('Opcao invalida!')
-                print('\n')
+
+    def init_components(self):
+        sg.ChangeLookAndFeel('BlueMono')
+
+        botoes = [
+                    [sg.Button('Cadastrar', size=(20, 2), key=1, button_color='#7B68EE')],
+                    [sg.Button('Alterar', size=(20, 2), key=2, button_color='#7B68EE')],
+                    [sg.Button('Listar', size=(20, 2), key=3, button_color='#7B68EE')],
+                    [sg.Button('Retornar', size=(20, 2), key=0, button_color='#7B68EE')]
+        ]
+
+        layout = [
+                    [sg.Text("DOADOR", justification='center', size=(20, 1), font=("Montserrat", 25))],
+                    [sg.Text("O que deseja fazer?", justification='center', size=(15, 1), font=("Montserrat", 25))],
+                    [sg.Column(botoes, vertical_alignment='center', justification='center')]
+        ]
+
+        self.__window = sg.Window('Tela Doador', default_element_size=(40, 1)).Layout(layout)
+
+    def open(self):
+        button, values = self.__window.Read()
+        return button
+
+    def close(self):
+        self.__window.Close()
+
+    def show_message(self, titulo: str, mensagem: str):
+        sg.Popup(titulo, mensagem)
 
     def pega_dados_doador(self):
-        print("-------- DADOS DOADOR ----------")
+        sg.ChangeLookAndFeel('BlueMono')
 
-        while True:
-            try:
-                nome = input("Nome: ")
-                if nome == "":
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, não deixe o campo vazio!")
-        while True:
-            try:
-                data_nascimento = input("Data de nascimento: ")
-                if data_nascimento == "":
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, não deixe o campo vazio!")
-        while True:
-            try:
-                telefone = input("Telefone: ")
-                if telefone == "":
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, não deixe o campo vazio!")
-        while True:
-            try:
-                genero = input("Genero: ")
-                if (genero == "") or (genero.lower() != "feminino" and genero.lower() != "masculino"):
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, preencha o campo corretamente.")
-        while True:
-            try:
-                email = input("E-mail: ")
-                if (email == "") or ('@' not in email) or '.' not in email:
-                    raise ValueError
-                break
-            except ValueError:
-                print("E-mail invalido! Por favor, preencha o campo corretamente.")
-        while True:
-            try:
-                endereco = input("Endereco: ")
-                if endereco == "":
-                    raise ValueError
-                break
-            except ValueError:
-                print("Por favor, não deixe o campo vazio!")
+        entrada = [
+                    [sg.Text("Nome")],
+                    [sg.InputText(size=(20,2), key="nome")],
+                    [sg.Text("Data de nascimento")],
+                    [sg.InputText(size=(20,2), key="data_nascimento")],
+                    [sg.Text('Telefone')],
+                    [sg.InputText(size=(20, 2), key="telefone")],
+                    [sg.Text('Gênero')],
+                    [sg.InputCombo(('Feminino', 'Masculino'), size=(20, 3), key='genero')],
+                    [sg.Text('Email')],
+                    [sg.InputText(size=(20, 2), key="email")],
+                    [sg.Text('Endereço')],
+                    [sg.InputText(size=(20, 2), key="endereco")],
+                    [sg.Button("Cadastrar", key=1)]
+                ]
 
-        return {"nome": nome, "data_nascimento": data_nascimento, "telefone": telefone,
-                "genero": genero, "email": email, "endereco": endereco}
+        layout = [
+          [sg.Text('Login', size=(10,1), font=("Helvetica", 25), justification='center')],
+          [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')]
+        ]
+
+        self.__window2 = sg.Window("Cadastro de Doador", default_element_size=(30, 1)).Layout(layout)
+
+    def abrir_cadastro_doador(self):
+        self.pega_dados_doador()
+        button, values = self.__window2.Read()
+        return values
+
+    def fechar_cadastro_doador(self):
+        if self.__window2 != None:
+            self.__window2.Close()
+        self.__window2 = None
 
     def mostra_doador(self, dados_doador):
-        print("NOME DO DOADOR: ", dados_doador["nome"])
-        print("DATA DE NASCIMENTO DO DOADOR: ", dados_doador["data_nascimento"])
-        print("TELEFONE DO DOADOR: ", dados_doador["telefone"])
-        print("GENERO DO DOADOR: ", dados_doador["genero"])
-        print("E-MAIL DO DOADOR: ", dados_doador["email"])
-        print("ENDERECO DO DOADOR: ", dados_doador["endereco"])
-        print("\n")
+        sg.ChangeLookAndFeel('BlueMono')
+
+        dados = [
+        [sg.Text("NOME: ", dados_doador["nome"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("DATA DE NASCIMENTO: ", dados_doador["data_nascimento"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("TELEFONE: ", dados_doador["telefone"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("GÊNERO: ", dados_doador["genero"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("E-MAIL: ", dados_doador["email"], font=("Helvetica", 25), justification='center')],
+        [sg.Text("ENDEREÇO: ", dados_doador["endereco"], font=("Helvetica", 25), justification='center')],
+
+        ]
+
+        layout = [
+            [sg.Text('Doadores', size=(10, 1), font=("Helvetica", 13), justification='center')],
+            [sg.Column(dados, vertical_alignment='center', justification='center', k='-C-')]
+        ]
+
+        self.__window3 = sg.Window("Cadastro de Doador", default_element_size=(30, 1)).Layout(layout)
+
+    def abrir_mostra_doador(self):
+        self.mostra_doador()
+        button, values = self.__window3.Read()
+        return values
+
+    def fechar_mostra_doador(self):
+        if self.__window3 != None:
+            self.__window3.Close()
+        self.__window3 = None
 
     def seleciona_doador(self):
-        telefone = input("Telefone do doador que deseja selecionar: ")
-        return telefone
+        sg.ChangeLookAndFeel('BlueMono')
 
-    def mostra_mensagem(self, msg):
-        print(msg)
+        layout = [
+                    [sg.Text("Digite o telefone do doador que deseja selecionar")],
+                    [sg.InputText(size=(20, 2), key="telefone")],
+        ]
+
+        self.__window4 = sg.Window("Doador", default_element_size=(30, 1)).Layout(layout)
+
+    def abrir_seleciona_doador(self):
+        self.pega_dados_doador()
+        button, values = self.__window4.Read()
+        return values
+
+    def fechar_seleciona_doador(self):
+        if self.__window4 != None:
+            self.__window4.Close()
+        self.__window4 = None

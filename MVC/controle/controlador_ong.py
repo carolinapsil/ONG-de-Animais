@@ -87,6 +87,6 @@ class ControladorONG:
                         0: self.finaliza_sistema}
 
         while True:
-            opcao_escolhida = self.__tela_principal.mostra_opcoes()
+            opcao_escolhida = self.__tela_principal.open()
             funcao_escolhida = lista_opcoes[opcao_escolhida]
             funcao_escolhida()

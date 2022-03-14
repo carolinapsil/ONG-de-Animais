@@ -66,5 +66,5 @@ class Animal():
     def castracao(self, castracao):
         self.__castracao = castracao
 
-    def mostra_opcoes(self):
-        self.__tela_animal.tela_opcoes()
+    #def mostra_opcoes(self):
+        #self.__tela_animal.open()
