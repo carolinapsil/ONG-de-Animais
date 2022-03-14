@@ -1,6 +1,5 @@
 from MVC.DAO.abstrata_dao import Dao
-from MVC.entidade.pessoa import Pessoa
-
+from MVC.entidade.pessoa import Voluntario
 
 class VoluntarioDao(Dao):
     def __init__(self):

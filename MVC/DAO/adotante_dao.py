@@ -1,5 +1,5 @@
 from MVC.DAO.abstrata_dao import Dao
-from MVC.entidade.pessoa import Pessoa
+from MVC.entidade.pessoa import Adotante
 
 
 class AdotanteDao(Dao):

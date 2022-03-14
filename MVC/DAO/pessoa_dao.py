@@ -1,4 +1,4 @@
-from MVC.dao.dao import Dao
+from MVC.DAO.abstrata_dao import Dao
 from MVC.entidade.pessoa import Pessoa
 
 
