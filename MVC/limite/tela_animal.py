@@ -64,6 +64,7 @@ class TelaAnimal:
             except ValueError:
                 print("Por favor, preencha o campo corretamente com sim ou nao")
 
+
         while True:
             try:
                 vacina = input("Vacinado? ")
@@ -84,6 +85,7 @@ class TelaAnimal:
         return {"nome": nome, "chegada": chegada, "ano_nascimento": ano_nascimento, "sexo": sexo, "doenca": doenca,
                     "vacina": vacina, "castracao": castracao}
 
+
     def mostra_animal(self, dados_animal):
         print("NOME DO ANIMAL: ", dados_animal["nome"])
         print("CHEGADA DO ANIMAL: ", dados_animal["chegada"])
@@ -93,9 +95,11 @@ class TelaAnimal:
         print("O ANIMAL É CASTRADO?: ", dados_animal["castracao"])
         print("\n")
 
+
     def seleciona_animal(self):
         nome = input("Nome do animal que deseja selecionar: ")
         return nome
+
 
     def mostra_mensagem(self, msg):
         print(msg)
