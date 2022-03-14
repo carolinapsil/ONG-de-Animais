@@ -6,7 +6,7 @@ class ControladorLarTemporario:
     def __init__(self, controlador_sistema):
         self.__controlador_sistema = controlador_sistema
         self.__lares = []
-        self.__tela_lartemporario = TelaLarTemporario()
+        self.__tela_lartemporario = TelaLarTemporario(self)
 
     def pega_lartemporario_por_codigo(self, codigo: str):
         for lartemporario in self.__lares:
@@ -63,6 +63,8 @@ class ControladorLarTemporario:
 
     def abre_tela(self):
         lista_opcoes = {1: self.incluir_lartemporario, 2: self.altera_lartemporario, 3: self.lista_lartemporario, 4: self.excluir_lartemporario, 0: self.retornar}
-        continua = True
-        while continua:
-            lista_opcoes[self.__tela_lartemporario.tela_opcoes()]()
+
+        while True:
+            opcao_escolhida = self.__tela_lartemporario.open()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()

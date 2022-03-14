@@ -6,7 +6,7 @@ class ControladorAdocao:
     def __init__(self, controlador_sistema):
         self.__controlador_sistema = controlador_sistema
         self.__adocoes = []
-        self.__tela_adocao = TelaAdocao()
+        self.__tela_adocao = TelaAdocao(self)
 
     def pega_adocao_por_codigo(self, codigo: str):
         for adocao in self.__adocoes:
@@ -80,7 +80,8 @@ class ControladorAdocao:
 
     def abre_tela(self):
         lista_opcoes = {1: self.incluir_adocao, 2: self.altera_adocao, 3: self.lista_adocao, 4: self.excluir_adocao, 0: self.retornar}
-        continua = True
-        while continua:
-            lista_opcoes[self.__tela_adocao.tela_opcoes()]()
 
+        while True:
+            opcao_escolhida = self.__tela_adocao.open()
+            funcao_escolhida = lista_opcoes[opcao_escolhida]
+            funcao_escolhida()

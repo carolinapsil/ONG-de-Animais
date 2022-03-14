@@ -70,7 +70,7 @@ class TelaAnimal:
 
         self.__window2 = sg.Window("Cadastro de Animal", default_element_size=(30, 1)).Layout(layout)
 
-    def mostra_animal(self):
+    def abrir_cadastro_animal(self):
         self.pega_dados_animal()
         button, values = self.__window2.Read()
         return values
