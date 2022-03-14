@@ -1,6 +1,7 @@
 from MVC.limite.tela_animal import TelaAnimal
 from MVC.entidade.animal import Animal
 from MVC.controle.controlador_doacao import ControladorDoacoes
+from MVC.exceptions.NomeAnimalDuplicado import NomeAnimalDuplicado
 
 class ControladorAnimal:
 
@@ -17,17 +18,19 @@ class ControladorAnimal:
 
         def incluir_animal(self):
             dados_animal = self.__tela_animal.pega_dados_animal()
-            if not self.__controlador_sistema.controlador_animal.pega_animal_por_nome(dados_animal["nome"]):
+            try:
+                if self.__controlador_sistema.controlador_animal.pega_animal_por_nome(dados_animal["nome"]):
+                    raise NomeAnimalDuplicado
                 animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
                                 dados_animal["sexo"], dados_animal["doenca"], dados_animal["vacina"],
                                 dados_animal["castracao"])
-                if animal.vacina.lower() == "sim" and animal.castracao.lower() == "sim":
-                    self.__animais.append(animal)
-                else:
-                    self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja "
-                                                       "castrado e vacinado")
-            else:
-                self.__tela_animal.mostra_mensagem("Já existe um animal cadastrado com esse nome! Por favor, tente outro")
+                    if animal.vacina.lower() == "sim" and animal.castracao.lower() == "sim":
+                        self.__animais.append(animal)
+                    else:
+                        self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja "
+                                                           "castrado e vacinado")
+            except NomeAnimalDuplicado:
+                self.__tela_animal.mostra_mensagem("Já existe um animal cadastrado com esse nome!")
 
         def alterar_animal(self):
             self.lista_animais()
