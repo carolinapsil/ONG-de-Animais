@@ -8,6 +8,8 @@ class TelaDoacao():
         self.__controlador_doacao = controlador_doacao
         self.__window = None
         self.__window2 = None
+        self.__window3 = None
+        self.__window4 = None
         self.init_components()
 
     @property
@@ -64,7 +66,7 @@ class TelaDoacao():
         layout = [
             [sg.Text('Cadastro Doação', size=(10,1), font=("Helvetica", 15), justification='center')],
             [sg.Column(entrada, vertical_alignment='center', justification='center', k='-C-')],
-            [sg.Button("Cadastrar", key=1)]
+            [sg.Submit()]
                 ]
 
         self.__window2 = sg.Window("Cadastro de Doação", default_element_size=(30, 1)).Layout(layout)
@@ -78,3 +80,35 @@ class TelaDoacao():
         if self.__window2 != None:
             self.__window2.Close()
         self.__window2 = None
+
+    def mostra_doacao(self, dados_doacao):
+        sg.ChangeLookAndFeel('BlueMono')
+
+        dados = [[sg.Text("DOADOR: ", dados_doacao["doador"], font=("Helvetica", 25), justification='center')],
+                 [sg.Text("VALOR: ", dados_doacao["valor"], font=("Helvetica", 25), justification='center')],
+                 [sg.Text("DATA DOAÇÃO: ", dados_doacao["data_doacao"], font=("Helvetica", 25), justification='center')],
+                 [sg.Text("CÓDIGO DA DOACAO: ", dados_doacao["codigo"], font=("Helvetica", 25), justification='center')],
+                [sg.Text("_"*100)]]
+        layout = [[sg.Text('Adoções', size=(10, 1), font=("Helvetica", 25), justification='center')],
+                  [sg.Column(dados, vertical_alignment='center', justification='center', k='-C-')]]
+
+        self.__window3 = sg.Window("Adoção", default_element_size=(30, 1)).Layout(layout)
+
+    def abrir_mostra_doacao(self):
+        self.pega_dados_doacao()
+        button, values = self.__window3.Read()
+        return values
+
+    def fecha_mostra_doacao(self):
+        if self.__window3 != None:
+            self.__window3.Close()
+        self.__window3 = None
+
+
+    def seleciona_doacao(self):
+        sg.ChangeLookAndFeel('BlueMono')
+
+        layout = [[sg.Text("Digite o código da doação que deseja selecionar")],
+                  [sg.InputText(size=(20, 2), key="codigo")]]
+
+        self.__window4 = sg.Window("Doação", default_element_size=(30, 1)).Layout(layout)

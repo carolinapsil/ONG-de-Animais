@@ -51,7 +51,7 @@ class TelaAdotante():
     def close(self):
         self.__window.Close()
 
-    def show_message(self, titulo: str, mensagem: str):
+    def mostra_mensagem(self, titulo: str, mensagem: str):
         sg.Popup(titulo, mensagem)
 
     def pega_dados_adotante(self):

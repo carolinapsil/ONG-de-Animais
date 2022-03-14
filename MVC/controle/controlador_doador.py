@@ -19,21 +19,18 @@ class ControladorDoador():
     def pega_doador_por_nome(self, nome: str):
         for doador in self.__doadores:
             if (doador.nome == nome):
-                print('chegou aqui1')
                 return doador
         return None
 
     def inclui_doador(self):
-        dados_doador = self.__tela_doador.pega_dados_doador()
+        dados_doador = self.__tela_doador.abrir_cadastro_doador()
         doador = Doador(dados_doador["nome"],dados_doador["data_nascimento"], dados_doador["telefone"],
                             dados_doador["genero"], dados_doador["email"], dados_doador["endereco"])
         self.__doadores.append(doador)
 
     def lista_doadores(self):
         for doador in self.__doadores:
-            self.__tela_doador.mostra_doador(self, dados_doador={"nome": doador.nome, "data_nascimento": doador.data_nascimento,
-                                              "telefone": doador.telefone, "genero": doador.genero,
-                                              "email": doador.email, "endereco": doador.endereco})
+            self.__tela_doador.abrir_mostra_doador()
 
     def altera_doador(self):
         self.lista_doadores()
