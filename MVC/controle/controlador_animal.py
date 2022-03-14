@@ -24,11 +24,11 @@ class ControladorAnimal:
                 animal = Animal(dados_animal["nome"], dados_animal["chegada"], dados_animal["ano_nascimento"],
                                 dados_animal["sexo"], dados_animal["doenca"], dados_animal["vacina"],
                                 dados_animal["castracao"])
-                    if animal.vacina.lower() == "sim" and animal.castracao.lower() == "sim":
-                        self.__animais.append(animal)
-                    else:
-                        self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja "
-                                                           "castrado e vacinado")
+                if animal.vacina.lower() == "sim" and animal.castracao.lower() == "sim":
+                    self.__animais.append(animal)
+                else:
+                    self.__tela_animal.mostra_mensagem("ATENCAO: Para inclusao de animais, é preciso que ele esteja "
+                                                        "castrado e vacinado")
             except NomeAnimalDuplicado:
                 self.__tela_animal.mostra_mensagem("Já existe um animal cadastrado com esse nome!")
 
